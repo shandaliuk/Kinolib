@@ -1,4 +1,5 @@
 import { Outlet } from 'react-router-dom';
+import { Container } from 'components/Container/Container';
 import { Footer } from './SharedLayout.styled';
 
 export const SharedLayout = () => {
@@ -6,9 +7,11 @@ export const SharedLayout = () => {
     <>
       <Outlet />
       <Footer>
-        <p>
-          © 2020 | All Rights Reserved | Developed with love by GoIT Students
-        </p>
+        <Container>
+          <p>
+            © 2020 | All Rights Reserved | Developed with love by GoIT Students
+          </p>
+        </Container>
       </Footer>
     </>
   );
