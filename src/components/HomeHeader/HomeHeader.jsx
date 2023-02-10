@@ -28,10 +28,12 @@ export const HomeHeader = () => {
             </SearchIcon>
           </SubmitButton>
         </Form>
-        <ErrorText>
-          Search result not successful. Enter the correct movie name and try
-          again.
-        </ErrorText>
+        {false && (
+          <ErrorText>
+            Search result not successful. Enter the correct movie name and try
+            again.
+          </ErrorText>
+        )}
       </Container>
     </HeaderHome>
   );
