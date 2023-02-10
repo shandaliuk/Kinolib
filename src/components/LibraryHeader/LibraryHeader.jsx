@@ -1,45 +1,40 @@
+import { Container } from 'components/Container/Container';
+import { HeaderNavigation } from 'components/HeaderNavigation/Navigation';
+import {} from 'components/HomeHeader/HomeHeader.styled';
+import {
+  HeaderLibrary,
+  LibraryWrapper,
+  ButtonList,
+  WatchedButton,
+  QueueButton,
+} from './LibraryHeader.styled';
+
 export const LibraryHeader = () => {
   return (
-    <header class="header header--library">
-      <div class="container">
-        <div class="header__wrapper header__wrapper--library">
-          <nav class="header__navigation">
-            <a href="./" class="logo">
-              <svg class="logo__icon">
-                <use href="./images/sprite.svg#icon-logo"></use>
-              </svg>
-              <span class="logo__title">Filmoteka</span>
-            </a>
-            <ul class="header__list">
-              <li>
-                <a href="./" class="header__link">
-                  Home
-                </a>
-              </li>
-              <li>
-                <a href="/library" class="header__link header__link--current">
-                  My library
-                </a>
-              </li>
-            </ul>
-          </nav>
-        </div>
-        <ul class="header__list header__list--buttons">
+    <HeaderLibrary>
+      <Container>
+        <LibraryWrapper>
+          <HeaderNavigation />
+        </LibraryWrapper>
+        <ButtonList class="header__list header__list--buttons">
           <li>
-            <button type="button" class="header__button js-watched-button">
+            <WatchedButton
+              type="button"
+              class="header__button js-watched-button"
+            >
               Watched
-            </button>
+            </WatchedButton>
           </li>
           <li>
-            <button
+            <QueueButton
               type="button"
               class="header__button header__button--queue js-queue-button"
             >
               Queue
-            </button>
+            </QueueButton>
           </li>
-        </ul>
-      </div>
-    </header>
+        </ButtonList>
+      </Container>
+    </HeaderLibrary>
   );
 };

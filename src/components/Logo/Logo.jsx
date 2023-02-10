@@ -7,7 +7,7 @@ export const Logo = () => {
       <LogoIcon>
         <use href={sprite + '#icon-film'}></use>
       </LogoIcon>
-      <LogoTitle>Filmoteka</LogoTitle>
+      <LogoTitle>Kinolib</LogoTitle>
     </LogoLink>
   );
 };

@@ -4,14 +4,14 @@ import styled from 'styled-components';
 export const LogoLink = styled(Link)`
   display: flex;
   align-items: center;
-  column-gap: 8;
-  color: var(--color-text-light);
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  column-gap: 8px;
+  color: ${props => props.theme.colors.primary};
+  transition: color ${props => props.theme.transitions.main};
   outline: none;
 
   &:hover,
   &:focus {
-    color: var(--color-accent);
+    color: ${props => props.theme.colors.accent};
   }
 `;
 

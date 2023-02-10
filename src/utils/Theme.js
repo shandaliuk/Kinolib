@@ -8,6 +8,9 @@ export const theme = {
     error: '#ff001b',
     accent: '#ff6b02',
   },
+  fonts: {
+    primary: "'Roboto', sans-serif",
+  },
   transitions: {
     main: '250ms cubic-bezier(0.4, 0, 0.2, 1)',
   },

@@ -1,12 +1,9 @@
 import { Container } from 'components/Container/Container';
 import sprite from 'images/sprite.svg';
-import { Logo } from 'components/Logo/Logo';
+import { HeaderNavigation } from 'components/HeaderNavigation/Navigation';
 import {
   HeaderHome,
   SearchIcon,
-  Navigation,
-  NavigationLink,
-  List,
   Wrapper,
   Form,
   Input,
@@ -20,17 +17,7 @@ export const HomeHeader = () => {
     <HeaderHome>
       <Container>
         <Wrapper>
-          <Navigation>
-            <Logo />
-            <List>
-              <li>
-                <NavigationLink to="/">Home</NavigationLink>
-              </li>
-              <li>
-                <NavigationLink to="library">My library</NavigationLink>
-              </li>
-            </List>
-          </Navigation>
+          <HeaderNavigation />
           <LoginButton type="button">Log in</LoginButton>
         </Wrapper>
         <Form>

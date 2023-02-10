@@ -1,1 +1,5 @@
-export const Library = () => null;
+import { LibraryHeader } from 'components/LibraryHeader/LibraryHeader';
+
+export const Library = () => {
+  return <LibraryHeader />;
+};
