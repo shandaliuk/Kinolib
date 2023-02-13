@@ -8,6 +8,16 @@ export const NavigationHeader = styled.nav`
   justify-content: space-between;
 `;
 
+export const List = styled.ul`
+  display: flex;
+  justify-content: center;
+  column-gap: 15px;
+
+  @media screen and (min-width: 768px) {
+    column-gap: 40px;
+  }
+`;
+
 export const NavigationLink = styled(NavLink)`
   font-weight: 500;
   font-size: 12px;
@@ -29,15 +39,5 @@ export const NavigationLink = styled(NavLink)`
   &:hover,
   &:focus {
     color: ${props => props.theme.colors.accent};
-  }
-`;
-
-export const List = styled.ul`
-  display: flex;
-  justify-content: center;
-  column-gap: 15px;
-
-  @media screen and (min-width: 768px) {
-    column-gap: 40px;
   }
 `;

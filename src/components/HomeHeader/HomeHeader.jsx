@@ -21,7 +21,12 @@ export const HomeHeader = () => {
           <LoginButton type="button">Log in</LoginButton>
         </Wrapper>
         <Form>
-          <Input type="text" placeholder="Movie search" name="query" />
+          <Input
+            type="text"
+            autoComplete="off"
+            placeholder="Movie search"
+            name="query"
+          />
           <SubmitButton type="submit">
             <SearchIcon>
               <use href={sprite + '#icon-search'}></use>

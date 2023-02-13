@@ -7,7 +7,7 @@ import homeDesktop from 'images/home-header-desktop.jpg';
 import homeDesktopRetina from 'images/home-header-desktop@2x.jpg';
 
 export const HeaderHome = styled.header`
-  padding-top: 39px;
+  padding-top: 40px;
   padding-bottom: 92px;
   background-image: url(${homeMobile});
   background-size: cover;
@@ -22,7 +22,7 @@ export const HeaderHome = styled.header`
 
   @media screen and (min-width: 768px) {
     background-image: url(${homeTablet});
-    padding-bottom: 80px;
+    padding-bottom: 82px;
 
     @media screen and (min-device-pixel-ratio: 2),
       (min-resolution: 192dpi),
@@ -50,7 +50,7 @@ export const Wrapper = styled.div`
   display: flex;
   align-items: center;
   width: 100%;
-  margin-bottom: 49px;
+  margin-bottom: 51px;
   column-gap: 15px;
 
   @media screen and (min-width: 768px) {

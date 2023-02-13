@@ -22,7 +22,7 @@ export const HeaderLibrary = styled.header`
   }
 
   @media screen and (min-width: 768px) {
-    padding-top: 37px;
+    padding-top: 40px;
     padding-bottom: 60px;
     background-image: url(${libraryTablet});
 
@@ -48,7 +48,7 @@ export const LibraryWrapper = styled.div`
   display: flex;
   align-items: center;
   width: 100%;
-  margin-bottom: 57px;
+  margin-bottom: 61px;
   column-gap: 15px;
 
   @media screen and (min-width: 768px) {

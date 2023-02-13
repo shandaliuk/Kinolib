@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Wrapper = styled.div`
+export const ContainerWrapper = styled.div`
   width: 320px;
   padding-left: 20px;
   padding-right: 20px;

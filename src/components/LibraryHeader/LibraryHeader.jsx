@@ -16,22 +16,12 @@ export const LibraryHeader = () => {
         <LibraryWrapper>
           <HeaderNavigation />
         </LibraryWrapper>
-        <ButtonList class="header__list header__list--buttons">
+        <ButtonList>
           <li>
-            <WatchedButton
-              type="button"
-              class="header__button js-watched-button"
-            >
-              Watched
-            </WatchedButton>
+            <WatchedButton type="button">Watched</WatchedButton>
           </li>
           <li>
-            <QueueButton
-              type="button"
-              class="header__button header__button--queue js-queue-button"
-            >
-              Queue
-            </QueueButton>
+            <QueueButton type="button">Queue</QueueButton>
           </li>
         </ButtonList>
       </Container>
