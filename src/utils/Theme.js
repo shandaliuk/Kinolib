@@ -7,6 +7,7 @@ export const theme = {
     card: '#ff6b08',
     error: '#ff001b',
     accent: '#ff6b02',
+    pagination: '#f7f7f7',
   },
   fonts: {
     primary: "'Roboto', sans-serif",
