@@ -17,6 +17,11 @@ export const PopularMovies = () => {
 
   const { data: movies, error, isLoading } = useGetTrendingMoviesQuery(page);
 
+  const handleClick = event => {
+    console.log(event);
+    setPage(event.nextSelectedPage + 1);
+  };
+
   return (
     <main>
       <MoviesSection>
@@ -47,7 +52,7 @@ export const PopularMovies = () => {
                 <use href={sprite + '#icon-arrow-right'}></use>
               </PaginationIcon>
             }
-            onPageChange={() => setPage(page => page + 1)}
+            onClick={handleClick}
             pageRangeDisplayed={2}
             pageCount={20}
             previousLabel={

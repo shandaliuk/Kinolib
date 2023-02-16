@@ -13,3 +13,10 @@ export const getGenres = ids => {
 };
 
 export const getYear = date => date.slice(0, 4);
+
+export const normalizeTitle = title => {
+  if (title.length > 34) {
+    return title.slice(0, 31) + '...';
+  }
+  return title;
+};

@@ -54,6 +54,7 @@ export const Pagination = styled(ReactPaginate)`
     &.selected {
       background-color: ${props => props.theme.colors.card};
       color: ${props => props.theme.colors.primary};
+      pointer-events: none;
     }
 
     &.next,
@@ -64,6 +65,10 @@ export const Pagination = styled(ReactPaginate)`
       &:focus {
         color: ${props => props.theme.colors.primary};
       }
+    }
+
+    &.disabled {
+      pointer-events: none;
     }
   }
 
