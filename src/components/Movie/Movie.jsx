@@ -1,20 +1,10 @@
-import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { getGenres, getYear, normalizeTitle } from 'services/serviceApi';
-import { MovieModal } from 'components/Modal/Modal';
 import { Image, MovieTitle, InfoWrapper } from './Movie.styled';
 
-export const Movie = ({ title, poster, date, genreIds }) => {
-  const [isModalOpened, setModalOpening] = useState(false);
-
-  const handleOpening = event => {
-    event.preventDefault();
-    setModalOpening(true);
-  };
-
-  const handleClosure = () => setModalOpening(false);
-
+export const Movie = ({ id, title, poster, date, genreIds }) => {
   return (
-    <a href="/" onClick={handleOpening}>
+    <Link to={`${id}`}>
       <Image
         src={`https://image.tmdb.org/t/p/w500${poster}`}
         alt={`Movie: ${title}`}
@@ -24,13 +14,6 @@ export const Movie = ({ title, poster, date, genreIds }) => {
         <ul>{getGenres(genreIds)} </ul>
         <p>&nbsp;| {getYear(date)}</p>
       </InfoWrapper>
-      {isModalOpened && (
-        <MovieModal
-          isOpened={isModalOpened}
-          onOpening={handleOpening}
-          onClosure={handleClosure}
-        />
-      )}
-    </a>
+    </Link>
   );
 };

@@ -9,7 +9,10 @@ export const moviesApi = createApi({
     getTrendingMovies: builder.query({
       query: (page = 1) => `trending/movie/day?page=${page}&api_key=${KEY}`,
     }),
+    getSingleMovie: builder.query({
+      query: id => `movie/${id}?api_key=${KEY}`,
+    }),
   }),
 });
 
-export const { useGetTrendingMoviesQuery } = moviesApi;
+export const { useGetTrendingMoviesQuery, useGetSingleMovieQuery } = moviesApi;

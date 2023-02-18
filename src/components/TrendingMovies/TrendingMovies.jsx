@@ -36,6 +36,7 @@ export const PopularMovies = () => {
                 return (
                   <li key={result.id}>
                     <Movie
+                      id={result.id}
                       title={result.title}
                       poster={result.poster_path}
                       date={result.release_date}
