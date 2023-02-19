@@ -4,15 +4,31 @@ import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { ColorRing } from 'react-loader-spinner';
 import { useGetSingleMovieQuery } from 'services/moviesApi/moviesApi';
+import sprite from 'images/sprite.svg';
+import {
+  ModalWrapper,
+  ModalImage,
+  ModalTitle,
+  StatsWrapper,
+  StatsNames,
+  StatsValues,
+  About,
+  Overview,
+  ModalButtonList,
+  WatchedModalButton,
+  QueueModalButton,
+  CloseButton,
+  CloseIcon,
+} from './MovieModal.styled';
 
 const customStyles = {
   content: {
-    top: '50%',
-    left: '50%',
-    right: 'auto',
-    bottom: 'auto',
-    marginRight: '-50%',
-    transform: 'translate(-50%, -50%)',
+    top: '20px',
+    left: '20px',
+    right: '20px',
+    bottom: '38px',
+    borderRadius: '0px',
+    padding: '0px',
   },
 };
 
@@ -47,26 +63,44 @@ export const MovieModal = () => {
           onRequestClose={handleClosure}
           style={customStyles}
         >
-          <img
-            src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-            alt={`Movie: ${movie.title}`}
-            width={100}
-          />
-          <h2>{movie.title}</h2>
-          <p>Vote / Votes</p>
-          <p>Popularity</p>
-          <p>Original Title</p>
-          <p>Genre</p>
-          <h3>About</h3>
-          <p>{movie.overview}</p>
-          <ul>
-            <li>
-              <button type="button">Add to watched</button>
-            </li>
-            <li>
-              <button type="button">Add to queue</button>
-            </li>
-          </ul>
+          <ModalWrapper>
+            <ModalImage
+              src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+              alt={`Movie: ${movie.title}`}
+            />
+            <ModalTitle>{movie.title}</ModalTitle>
+            <StatsWrapper>
+              <StatsNames>
+                <li>Vote / Votes</li>
+                <li>Popularity</li>
+                <li>Original Title</li>
+                <li>Genre</li>
+              </StatsNames>
+              <StatsValues>
+                <li>7.3 / 1260</li>
+                <li>100.2</li>
+                <li>A FISTFUL OF LEAD</li>
+                <li>Western</li>
+              </StatsValues>
+            </StatsWrapper>
+            <About>About</About>
+            <Overview>{movie.overview}</Overview>
+            <ModalButtonList>
+              <li>
+                <WatchedModalButton type="button">
+                  Add to watched
+                </WatchedModalButton>
+              </li>
+              <li>
+                <QueueModalButton type="button">Add to queue</QueueModalButton>
+              </li>
+            </ModalButtonList>
+            <CloseButton type="button" onClick={handleClosure}>
+              <CloseIcon>
+                <use href={sprite + '#icon-close'}></use>
+              </CloseIcon>
+            </CloseButton>
+          </ModalWrapper>
         </Modal>
       )}
     </>

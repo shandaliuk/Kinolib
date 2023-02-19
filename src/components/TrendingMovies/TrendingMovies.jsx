@@ -2,15 +2,13 @@ import { useState } from 'react';
 import { Outlet } from 'react-router-dom';
 import { ColorRing } from 'react-loader-spinner';
 import { useGetTrendingMoviesQuery } from 'services/moviesApi/moviesApi';
-import sprite from 'images/sprite.svg';
 import { Container } from 'components/Container/Container';
 import { Movie } from 'components/Movie/Movie';
+import { Pagination } from 'components/Pagination/Pagination';
 import {
   MoviesSection,
   HiddenTitle,
   MoviesList,
-  Pagination,
-  PaginationIcon,
 } from './TrendingMovies.styled';
 
 export const PopularMovies = () => {
@@ -44,24 +42,7 @@ export const PopularMovies = () => {
                 );
               })}
           </MoviesList>
-          <Pagination
-            breakLabel="..."
-            nextLabel={
-              <PaginationIcon>
-                <use href={sprite + '#icon-arrow-right'}></use>
-              </PaginationIcon>
-            }
-            onClick={handleClick}
-            pageRangeDisplayed={2}
-            pageCount={20}
-            previousLabel={
-              <PaginationIcon>
-                <use href={sprite + '#icon-arrow-left'}></use>
-              </PaginationIcon>
-            }
-            marginPagesDisplayed={1}
-            renderOnZeroPageCount={null}
-          />
+          <Pagination onClick={handleClick} />
         </Container>
       </MoviesSection>
       <Outlet />
