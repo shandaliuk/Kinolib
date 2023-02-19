@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Outlet } from 'react-router-dom';
 import { ColorRing } from 'react-loader-spinner';
 import { useGetTrendingMoviesQuery } from 'services/moviesApi/moviesApi';
 import sprite from 'images/sprite.svg';
@@ -17,10 +18,7 @@ export const PopularMovies = () => {
 
   const { data: movies, error, isLoading } = useGetTrendingMoviesQuery(page);
 
-  const handleClick = event => {
-    console.log(event);
-    setPage(event.nextSelectedPage + 1);
-  };
+  const handleClick = event => setPage(event.nextSelectedPage + 1);
 
   return (
     <main>
@@ -66,6 +64,7 @@ export const PopularMovies = () => {
           />
         </Container>
       </MoviesSection>
+      <Outlet />
     </main>
   );
 };

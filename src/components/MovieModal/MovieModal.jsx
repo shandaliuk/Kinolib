@@ -1,4 +1,5 @@
 import Modal from 'react-modal';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { ColorRing } from 'react-loader-spinner';
@@ -15,19 +16,23 @@ const customStyles = {
   },
 };
 
-Modal.setAppElement('#root');
-
 export const MovieModal = () => {
-  console.log('Hello');
   const [isModalOpened, setModalOpening] = useState(true);
 
   const { movieId: id } = useParams();
+
+  const location = useLocation();
+
+  const navigate = useNavigate();
 
   const handleOpening = () => {
     setModalOpening(true);
   };
 
-  const handleClosure = () => setModalOpening(false);
+  const handleClosure = () => {
+    setModalOpening(false);
+    navigate(location.state?.from && '/trending');
+  };
 
   const { data: movie, error, isLoading } = useGetSingleMovieQuery(id);
 
