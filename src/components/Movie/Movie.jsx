@@ -1,12 +1,10 @@
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { getGenres, getYear, normalizeTitle } from 'services/serviceApi';
 import { Image, MovieTitle, InfoWrapper } from './Movie.styled';
 
 export const Movie = ({ id, title, poster, date, genreIds }) => {
-  const location = useLocation();
-
   return (
-    <Link to={`${id}`} state={{ from: location }}>
+    <Link to={`${id}`}>
       <Image
         src={`https://image.tmdb.org/t/p/w500${poster}`}
         alt={`Movie: ${title}`}

@@ -1,10 +1,24 @@
 import styled from 'styled-components';
 
-export const ModalWrapper = styled.div`
+export const ModalContent = styled.div`
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  right: 20px;
+  bottom: 38px;
   padding: 48px 20px 48px 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow: auto;
+  outline: none;
+  background: rgb(255, 255, 255);
+`;
+
+export const Overlay = styled.div`
+  position: fixed;
+  inset: 0px;
+  background-color: rgba(0, 0, 0, 0.25);
 `;
 
 export const ModalImage = styled.img`
@@ -68,8 +82,8 @@ export const ModalButtonList = styled.ul`
 `;
 
 export const WatchedModalButton = styled.button`
-  padding: 5px;
   width: 110px;
+  padding: 5px 10px;
   font-family: inherit;
   font-weight: 500;
   font-size: 12px;
@@ -101,8 +115,8 @@ export const WatchedModalButton = styled.button`
 `;
 
 export const QueueModalButton = styled.button`
-  padding: 13px 0px;
   width: 110px;
+  padding: 13px 0px;
   font-family: inherit;
   font-weight: 500;
   font-size: 12px;

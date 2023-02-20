@@ -24,6 +24,7 @@ export const HiddenTitle = styled.h1`
 export const MoviesList = styled.ul`
   display: flex;
   flex-direction: column;
+  justify-content: center;
   row-gap: 20px;
 
   @media screen and (min-width: 768px) {
