@@ -75,31 +75,28 @@ export const ModalTitle = styled.h2`
   }
 `;
 
-export const StatsWrapper = styled.div`
-  display: flex;
-  /* column-gap: 39px; */
+export const Table = styled.table`
+  border-spacing: 0 8px;
   margin-bottom: 20px;
-  justify-content: space-between;
 `;
 
-export const StatsNames = styled.ul`
-  /* display: flex; */
-  flex-grow: 1;
-  flex-direction: column;
-  row-gap: 8px;
+export const TableName = styled.td`
+  vertical-align: top;
+  min-width: 108px;
   font-weight: 500;
   font-size: 12px;
   line-height: 1.33;
   color: ${props => props.theme.colors.secondary};
+
+  @media screen and (min-width: 1280px) {
+    min-width: 152px;
+  }
 `;
 
-export const StatsValues = styled.ul`
-  /* display: flex; */
-  flex-direction: column;
-  row-gap: 8px;
-  font-weight: 500;
+export const TableValue = styled.td`
   font-size: 12px;
   line-height: 1.33;
+  font-weight: 500;
 `;
 
 export const UserScore = styled.span`

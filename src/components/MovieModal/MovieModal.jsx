@@ -10,9 +10,9 @@ import {
   Info,
   ModalImage,
   ModalTitle,
-  StatsWrapper,
-  StatsNames,
-  StatsValues,
+  Table,
+  TableName,
+  TableValue,
   UserScore,
   About,
   Overview,
@@ -57,23 +57,32 @@ export const MovieModal = () => {
           />
           <Info>
             <ModalTitle>{movie.title}</ModalTitle>
-            <StatsWrapper>
-              <StatsNames>
-                <li>Vote / Votes</li>
-                <li>Popularity</li>
-                <li>Original Title</li>
-                <li>Genre</li>
-              </StatsNames>
-              <StatsValues>
-                <li>
-                  <UserScore>{movie.vote_average.toFixed(1)}</UserScore>/{' '}
-                  {movie.vote_count}
-                </li>
-                <li>{movie.popularity.toFixed(1)}</li>
-                <li>{movie.original_title.toUpperCase()}</li>
-                <li>{movie.genres.map(genre => genre.name).join(', ')}</li>
-              </StatsValues>
-            </StatsWrapper>
+            <Table>
+              <tbody>
+                <tr>
+                  <TableName>Vote / Votes</TableName>
+                  <TableValue>
+                    {' '}
+                    <UserScore>{movie.vote_average.toFixed(1)}</UserScore>/{' '}
+                    {movie.vote_count}
+                  </TableValue>
+                </tr>
+                <tr>
+                  <TableName>Popularity</TableName>
+                  <TableValue>{movie.popularity.toFixed(1)}</TableValue>
+                </tr>
+                <tr>
+                  <TableName>Original Title</TableName>
+                  <TableValue>{movie.original_title.toUpperCase()}</TableValue>
+                </tr>
+                <tr>
+                  <TableName>Genre</TableName>
+                  <TableValue>
+                    {movie.genres.map(genre => genre.name).join(', ')}
+                  </TableValue>
+                </tr>
+              </tbody>
+            </Table>
             <About>About</About>
             <Overview>{movie.overview}</Overview>
             <ModalButtonList>
