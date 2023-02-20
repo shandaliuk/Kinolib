@@ -13,6 +13,25 @@ export const ModalContent = styled.div`
   overflow: auto;
   outline: none;
   background: rgb(255, 255, 255);
+
+  @media screen and (min-width: 768px) {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 704px;
+    height: 552px;
+    padding: 40px 66px 40px 36px;
+    flex-direction: row;
+    align-items: flex-start;
+    column-gap: 68px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 806px;
+    height: 558px;
+    padding: 40px 12px;
+    column-gap: 16px;
+  }
 `;
 
 export const Overlay = styled.div`
@@ -25,6 +44,22 @@ export const ModalImage = styled.img`
   width: 240px;
   border-radius: 5px;
   margin-bottom: 20px;
+
+  @media screen and (min-width: 768px) {
+    width: 264px;
+    margin-bottom: 0px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 375px;
+    height: 478px;
+  }
+`;
+
+export const Info = styled.div`
+  @media screen and (max-width: 767px) {
+    width: 240px;
+  }
 `;
 
 export const ModalTitle = styled.h2`
@@ -33,16 +68,23 @@ export const ModalTitle = styled.h2`
   line-height: 1.15;
   margin-bottom: 20px;
   text-transform: uppercase;
+
+  @media screen and (max-width: 1280px) {
+    font-size: 30px;
+    line-height: 1.17;
+  }
 `;
 
 export const StatsWrapper = styled.div`
   display: flex;
-  column-gap: 39px;
+  /* column-gap: 39px; */
   margin-bottom: 20px;
+  justify-content: space-between;
 `;
 
 export const StatsNames = styled.ul`
-  display: flex;
+  /* display: flex; */
+  flex-grow: 1;
   flex-direction: column;
   row-gap: 8px;
   font-weight: 500;
@@ -52,12 +94,22 @@ export const StatsNames = styled.ul`
 `;
 
 export const StatsValues = styled.ul`
-  display: flex;
+  /* display: flex; */
   flex-direction: column;
   row-gap: 8px;
   font-weight: 500;
   font-size: 12px;
   line-height: 1.33;
+`;
+
+export const UserScore = styled.span`
+  display: inline-block;
+  width: 36px;
+  height: 16px;
+  border-radius: 5px;
+  background-color: ${props => props.theme.colors.accent};
+  color: ${props => props.theme.colors.primary};
+  text-align: center;
 `;
 
 export const About = styled.h3`
@@ -106,11 +158,15 @@ export const WatchedModalButton = styled.button`
   }
 
   @media screen and (min-width: 768px) {
-    padding: 13px 57px;
+    width: 125px;
+    padding-top: 14px;
+    padding-bottom: 12px;
   }
 
   @media screen and (min-width: 768px) {
-    padding: 13px 54px;
+    width: 136px;
+    padding-top: 14px;
+    padding-bottom: 12px;
   }
 `;
 
@@ -139,11 +195,15 @@ export const QueueModalButton = styled.button`
   }
 
   @media screen and (min-width: 768px) {
-    padding: 13px 57px;
+    width: 125px;
+    padding-top: 14px;
+    padding-bottom: 12px;
   }
 
   @media screen and (min-width: 768px) {
-    padding: 13px 54px;
+    width: 136px;
+    padding-top: 14px;
+    padding-bottom: 12px;
   }
 `;
 

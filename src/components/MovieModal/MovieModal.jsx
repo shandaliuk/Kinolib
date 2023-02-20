@@ -7,11 +7,13 @@ import sprite from 'images/sprite.svg';
 import {
   ModalContent,
   Overlay,
+  Info,
   ModalImage,
   ModalTitle,
   StatsWrapper,
   StatsNames,
   StatsValues,
+  UserScore,
   About,
   Overview,
   ModalButtonList,
@@ -53,33 +55,38 @@ export const MovieModal = () => {
             src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
             alt={`Movie: ${movie.title}`}
           />
-          <ModalTitle>{movie.title}</ModalTitle>
-          <StatsWrapper>
-            <StatsNames>
-              <li>Vote / Votes</li>
-              <li>Popularity</li>
-              <li>Original Title</li>
-              <li>Genre</li>
-            </StatsNames>
-            <StatsValues>
-              <li>7.3 / 1260</li>
-              <li>100.2</li>
-              <li>A FISTFUL OF LEAD</li>
-              <li>Western</li>
-            </StatsValues>
-          </StatsWrapper>
-          <About>About</About>
-          <Overview>{movie.overview}</Overview>
-          <ModalButtonList>
-            <li>
-              <WatchedModalButton type="button">
-                Add to watched
-              </WatchedModalButton>
-            </li>
-            <li>
-              <QueueModalButton type="button">Add to queue</QueueModalButton>
-            </li>
-          </ModalButtonList>
+          <Info>
+            <ModalTitle>{movie.title}</ModalTitle>
+            <StatsWrapper>
+              <StatsNames>
+                <li>Vote / Votes</li>
+                <li>Popularity</li>
+                <li>Original Title</li>
+                <li>Genre</li>
+              </StatsNames>
+              <StatsValues>
+                <li>
+                  <UserScore>{movie.vote_average.toFixed(1)}</UserScore>/{' '}
+                  {movie.vote_count}
+                </li>
+                <li>{movie.popularity.toFixed(1)}</li>
+                <li>{movie.original_title.toUpperCase()}</li>
+                <li>{movie.genres.map(genre => genre.name).join(', ')}</li>
+              </StatsValues>
+            </StatsWrapper>
+            <About>About</About>
+            <Overview>{movie.overview}</Overview>
+            <ModalButtonList>
+              <li>
+                <WatchedModalButton type="button">
+                  Add to watched
+                </WatchedModalButton>
+              </li>
+              <li>
+                <QueueModalButton type="button">Add to queue</QueueModalButton>
+              </li>
+            </ModalButtonList>
+          </Info>
           <CloseButton type="button" onClick={handleClosure}>
             <CloseIcon>
               <use href={sprite + '#icon-close'}></use>
