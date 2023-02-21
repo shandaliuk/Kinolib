@@ -5,11 +5,7 @@ import { useGetTrendingMoviesQuery } from 'services/moviesApi/moviesApi';
 import { Container } from 'components/Container/Container';
 import { Movie } from 'components/Movie/Movie';
 import { Pagination } from 'components/Pagination/Pagination';
-import {
-  MoviesSection,
-  HiddenTitle,
-  MoviesList,
-} from './TrendingMovies.styled';
+import { MoviesSection, HiddenTitle, MoviesList } from '../Movies.styled';
 
 export const PopularMovies = () => {
   const [page, setPage] = useState(1);

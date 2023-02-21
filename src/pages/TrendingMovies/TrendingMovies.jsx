@@ -1,10 +1,8 @@
-import { HomeHeader } from 'components/HomeHeader/HomeHeader';
-import { PopularMovies } from 'components/TrendingMovies/TrendingMovies';
+import { PopularMovies } from 'components/Movies/TrendingMovies/TrendingMovies';
 
 export const TrendingMovies = () => {
   return (
     <>
-      <HomeHeader />
       <PopularMovies />
     </>
   );

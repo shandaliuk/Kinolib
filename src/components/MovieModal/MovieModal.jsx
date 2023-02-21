@@ -2,7 +2,7 @@ import Modal from 'react-modal';
 import { useNavigate } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import { ColorRing } from 'react-loader-spinner';
-import { useGetSingleMovieQuery } from 'services/moviesApi/moviesApi';
+import { useGetMovieDetailsQuery } from 'services/moviesApi/moviesApi';
 import sprite from 'images/sprite.svg';
 import {
   ModalContent,
@@ -32,7 +32,7 @@ export const MovieModal = () => {
     navigate('/trending');
   };
 
-  const { data: movie, error, isLoading } = useGetSingleMovieQuery(id);
+  const { data: movie, error, isLoading } = useGetMovieDetailsQuery(id);
 
   return (
     <>
