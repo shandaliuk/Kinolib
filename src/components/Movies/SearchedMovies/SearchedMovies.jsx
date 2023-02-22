@@ -13,11 +13,9 @@ export const SearchedMovies = () => {
 
   const [page, setPage] = useState(1);
 
+  const { data: movies, isLoading, error } = useGetMovieQuery({ page, query });
+
   const handleClick = event => setPage(event.nextSelectedPage + 1);
-
-  const { data: movies, isLoading, error } = useGetMovieQuery(query, page);
-
-  console.log(page);
 
   return (
     <main>

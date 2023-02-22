@@ -1,7 +1,7 @@
 import sprite from 'images/sprite.svg';
 import { SitePagination, PaginationIcon } from './Pagination.styled';
 
-export const Pagination = ({ onClick, pageCount = 20 }) => {
+export const Pagination = ({ page = 1, onClick, pageCount = 20 }) => {
   return (
     <SitePagination
       breakLabel="..."
@@ -10,6 +10,7 @@ export const Pagination = ({ onClick, pageCount = 20 }) => {
           <use href={sprite + '#icon-arrow-right'}></use>
         </PaginationIcon>
       }
+      // forcePage={page}
       onClick={onClick}
       pageRangeDisplayed={2}
       pageCount={pageCount}

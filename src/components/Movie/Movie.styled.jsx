@@ -1,16 +1,21 @@
 import styled from 'styled-components';
 
 export const Image = styled.img`
+  height: 402px;
   width: 280px;
   margin-bottom: 10px;
   border-radius: 5px;
+  object-position: center;
+  object-fit: cover;
 
   @media screen and (min-width: 768px) {
+    height: 455px;
     width: 336px;
     margin-bottom: 8px;
   }
 
   @media screen and (min-width: 1280px) {
+    height: 574px;
     width: 394px;
     margin-bottom: 12px;
   }

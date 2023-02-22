@@ -6,7 +6,11 @@ export const Movie = ({ id, title, poster, date, genreIds }) => {
   return (
     <Link to={`${id}`}>
       <Image
-        src={`https://image.tmdb.org/t/p/w500${poster}`}
+        src={
+          poster
+            ? `https://image.tmdb.org/t/p/w500${poster}`
+            : 'https://images.pexels.com/photos/65128/pexels-photo-65128.jpeg'
+        }
         alt={`Movie: ${title}`}
       />
       <MovieTitle>{normalizeTitle(title)}</MovieTitle>
