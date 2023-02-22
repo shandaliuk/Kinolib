@@ -29,7 +29,7 @@ export const MovieModal = () => {
   const navigate = useNavigate();
 
   const handleClosure = () => {
-    navigate('/trending');
+    navigate('/movies/trending');
   };
 
   const { data: movie, error, isLoading } = useGetMovieDetailsQuery(id);

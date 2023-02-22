@@ -1,6 +1,5 @@
 import { Formik, Form } from 'formik';
-import { useDispatch } from 'react-redux';
-import { setQuery } from 'redux/query/query';
+import { useNavigate } from 'react-router-dom';
 import sprite from 'images/sprite.svg';
 import {
   FormWrapper,
@@ -11,10 +10,10 @@ import {
 } from './Form.styled';
 
 export const HeaderForm = () => {
-  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleSubmit = (values, actions) => {
-    dispatch(setQuery(values.query));
+    navigate(`/movies/${values.query}`);
     actions.resetForm();
   };
 

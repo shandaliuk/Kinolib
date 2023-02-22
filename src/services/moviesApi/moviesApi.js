@@ -13,7 +13,10 @@ export const moviesApi = createApi({
       query: id => `movie/${id}?api_key=${KEY}`,
     }),
     getMovie: builder.query({
-      query: query => `search/movie?query=${query}&api_key=${KEY}`,
+      query: (query, page = 1) => {
+        console.log('Here', page);
+        return `search/movie?query=${query}&page=${page}&api_key=${KEY}`;
+      },
     }),
   }),
 });
