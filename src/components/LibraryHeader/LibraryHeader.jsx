@@ -1,6 +1,5 @@
 import { Container } from 'components/Container/Container';
 import { HeaderNavigation } from 'components/HeaderNavigation/Navigation';
-import {} from 'components/HomeHeader/HomeHeader.styled';
 import {
   HeaderLibrary,
   LibraryWrapper,

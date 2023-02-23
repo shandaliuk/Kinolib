@@ -1,4 +1,5 @@
-import { Outlet, useSearchParams } from 'react-router-dom';
+import { useState } from 'react';
+import { Outlet } from 'react-router-dom';
 import { ColorRing } from 'react-loader-spinner';
 import { useGetTrendingMoviesQuery } from 'services/moviesApi/moviesApi';
 import { Container } from 'components/Container/Container';
@@ -7,16 +8,13 @@ import { Pagination } from 'components/Pagination/Pagination';
 import { MoviesSection, HiddenTitle, MoviesList } from '../Movies.styled';
 
 export const PopularMovies = () => {
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [page, setPage] = useState(1);
 
-  const page = searchParams.get('page');
-
-  console.log(page);
+  // const [searchParams, setSearchParams] = useSearchParams();
 
   const { data: movies, error, isLoading } = useGetTrendingMoviesQuery(page);
 
-  const handleClick = event =>
-    setSearchParams({ page: event.nextSelectedPage + 1 });
+  const handleClick = () => setPage(page => page + 1);
 
   return (
     <main>

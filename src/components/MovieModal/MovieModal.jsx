@@ -1,5 +1,5 @@
 import Modal from 'react-modal';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import { ColorRing } from 'react-loader-spinner';
 import { useGetMovieDetailsQuery } from 'services/moviesApi/moviesApi';
@@ -28,8 +28,12 @@ export const MovieModal = () => {
 
   const navigate = useNavigate();
 
+  const location = useLocation();
+
+  const path = location.pathname.slice(0, location.pathname.indexOf('/', 8));
+
   const handleClosure = () => {
-    navigate('/movies/trending');
+    navigate(path);
   };
 
   const { data: movie, error, isLoading } = useGetMovieDetailsQuery(id);
