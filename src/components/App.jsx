@@ -8,13 +8,15 @@ import { SearchedMovies } from './Movies/SearchedMovies/SearchedMovies';
 import { Library } from 'pages/Library/Library';
 import { Watched } from './Watched/Watched';
 import { Queue } from './Queue/Queue';
+import { Login } from 'LoginModal/LoginModal';
 import { MovieModal } from './MovieModal/MovieModal';
 
 export const App = () => {
   return (
     <Routes>
       <Route path="/" element={<SharedLayout />}>
-        <Route index element={<Home />}></Route>
+        <Route index element={<Home />} />
+        <Route path="login" element={<Login />} />
         <Route path="movies" element={<Movies />}>
           <Route index element={<MoviesHome />} />
           <Route path="trending" element={<TrendingMovies />}>

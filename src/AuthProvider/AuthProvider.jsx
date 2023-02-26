@@ -1,31 +1,24 @@
-import { useEffect, useState } from 'react';
-import { getAuth, signInWithPopup } from 'firebase/auth';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { getAuth } from 'firebase/auth';
 import { app } from 'services/firebase/firebase';
-import { googleAuthProvider } from 'services/firebase/firebase';
+import { setLogIn, setLogOut } from 'redux/auth/authSlice';
 
-export const AuthProvider = () => {
+export const AuthProvider = ({ children }) => {
   const auth = getAuth(app);
 
-  const [user, setUser] = useState(auth.currentUser);
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    const unsub = auth.onAuthStateChanged(maybeUser => {
-      if (maybeUser !== null) {
-        setUser(maybeUser);
+    const unsub = auth.onAuthStateChanged(user => {
+      if (user !== null) {
+        dispatch(setLogIn());
         return;
       }
-      const authenticate = async () => {
-        try {
-          const credentials = await signInWithPopup(auth, googleAuthProvider);
-          setUser(credentials.user);
-        } catch (error) {
-          console.log(error.message);
-        }
-      };
-      authenticate();
+      dispatch(setLogOut());
     });
     return unsub;
-  }, [auth]);
+  }, [dispatch, auth]);
 
-  return user !== null ? <>{user.displayName}</> : <>Loading...</>;
+  return <>{children}</>;
 };

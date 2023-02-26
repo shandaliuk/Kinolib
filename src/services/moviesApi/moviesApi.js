@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
-const KEY = import.meta.env.VITE_MOVIE_API_KEY;
+const KEY = process.env.REACT_APP_MOVIE_API_KEY;
 
 export const moviesApi = createApi({
   reducerPath: 'moviesApi',

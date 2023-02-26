@@ -1,8 +1,7 @@
-// Import the functions you need from the SDKs you need
 import { initializeApp } from 'firebase/app';
-import { GoogleAuthProvider } from 'firebase/auth';
+// import { GoogleAuthProvider } from 'firebase/auth';
 
-const AUTH_KEY = import.meta.env.VITE_AUTH_API_KEY;
+const AUTH_KEY = process.env.REACT_APP_AUTH_API_KEY;
 
 const firebaseConfig = {
   apiKey: AUTH_KEY,
@@ -14,4 +13,4 @@ const firebaseConfig = {
 };
 
 export const app = initializeApp(firebaseConfig);
-export const googleAuthProvider = new GoogleAuthProvider();
+// export const googleAuthProvider = new GoogleAuthProvider();

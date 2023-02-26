@@ -9,6 +9,7 @@ import { GlobalStyle } from 'utils/GlobalStyles';
 import { theme } from 'utils/Theme';
 import { App } from './components/App';
 import './index.css';
+import { AuthProvider } from 'AuthProvider/AuthProvider';
 
 Modal.setAppElement('#root');
 
@@ -16,12 +17,14 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   // <React.StrictMode>
   <Provider store={store}>
-    <BrowserRouter>
-      <ThemeProvider theme={theme}>
-        <GlobalStyle />
-        <App />
-      </ThemeProvider>
-    </BrowserRouter>
+    <AuthProvider>
+      <BrowserRouter>
+        <ThemeProvider theme={theme}>
+          <GlobalStyle />
+          <App />
+        </ThemeProvider>
+      </BrowserRouter>
+    </AuthProvider>
   </Provider>
   // {/* </React.StrictMode> */}
 );

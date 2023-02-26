@@ -110,5 +110,3 @@ export const MovieModal = () => {
     </>
   );
 };
-
-// Test
