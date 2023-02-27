@@ -2,7 +2,7 @@ import { Container } from 'components/Container/Container';
 import { HeaderNavigation } from 'components/HeaderNavigation/Navigation';
 import { AuthButton } from 'AuthButton/AuthButton';
 import { HeaderForm } from 'components/Form/Form';
-import { HeaderHome, Wrapper, LoginButton } from './HomeHeader.styled';
+import { HeaderHome, Wrapper } from './HomeHeader.styled';
 
 export const HomeHeader = () => {
   return (

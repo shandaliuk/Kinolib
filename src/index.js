@@ -8,6 +8,7 @@ import { ThemeProvider } from 'styled-components';
 import { GlobalStyle } from 'utils/GlobalStyles';
 import { theme } from 'utils/Theme';
 import { App } from './components/App';
+import 'react-toastify/dist/ReactToastify.css';
 import './index.css';
 import { AuthProvider } from 'AuthProvider/AuthProvider';
 
