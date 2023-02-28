@@ -23,9 +23,10 @@ export const LogoIcon = styled.svg`
 export const LogoTitle = styled.span`
   display: none;
   font-weight: 500;
-  font-size: 30px;
+  font-size: 24px;
   line-height: 1.17;
   text-align: center;
+  text-transform: uppercase;
 
   @media screen and (min-width: 768px) {
     display: block;
