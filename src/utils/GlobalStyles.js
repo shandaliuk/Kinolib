@@ -51,7 +51,7 @@ button, input {
 body {
     font-family: ${props => props.theme.fonts.primary};
     background-color: #030a02;
-    color: ${props => props.theme.colors.tertiary};
+    color: ${props => props.theme.colors.primary};
     padding: 0;
 }
 `;

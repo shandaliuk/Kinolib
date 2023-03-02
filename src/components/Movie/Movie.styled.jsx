@@ -1,10 +1,23 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+
+export const MovieLink = styled(Link)`
+  display: block;
+  background-color: rgba(3, 10, 2, 0.5);
+  text-align: center;
+  padding-bottom: 12px;
+  transition: background-color ${props => props.theme.transitions.main};
+
+  &:hover,
+  &:focus {
+    background-color: rgb(224, 234, 210, 0.3);
+  }
+`;
 
 export const Image = styled.img`
   height: 402px;
   width: 280px;
   margin-bottom: 10px;
-  border-radius: 5px;
   object-position: center;
   object-fit: cover;
 
@@ -26,7 +39,7 @@ export const MovieTitle = styled.h2`
   font-size: 12px;
   line-height: 1.17;
   text-transform: uppercase;
-  color: ${props => props.theme.colors.tertiary};
+  color: ${props => props.theme.colors.primary};
 
   @media screen and (min-width: 768px) {
     line-height: 1.3;
@@ -40,6 +53,7 @@ export const MovieTitle = styled.h2`
 
 export const InfoWrapper = styled.div`
   display: flex;
+  justify-content: center;
   font-weight: 200;
   font-size: 12px;
   line-height: 1.17;

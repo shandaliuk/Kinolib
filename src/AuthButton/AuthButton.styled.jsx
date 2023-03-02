@@ -13,11 +13,13 @@ export const LoginButton = styled.button`
   border: 1px solid ${props => props.theme.colors.primary};
   outline: none;
   transition: background ${props => props.theme.transitions.main},
-    border ${props => props.theme.transitions.main};
+    border ${props => props.theme.transitions.main},
+    color ${props => props.theme.transitions.main};
 
   &:hover,
   &:focus {
-    background: #ff6b02;
+    background: #e0ead2;
+    color: #030a02;
     border: 1px solid transparent;
   }
 

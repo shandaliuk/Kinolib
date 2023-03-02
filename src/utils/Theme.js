@@ -3,10 +3,10 @@ export const theme = {
     primary: '#61de2a',
     secondary: '#8c8c8c',
     tertiary: '#000000',
-    footer: '#545454',
-    card: '#ff6b08',
+    footer: '#030a02',
+    card: '#e0ead2',
     error: '#ff001b',
-    accent: '#ffffff',
+    accent: '#e0ead2',
     pagination: '#f7f7f7',
   },
   fonts: {

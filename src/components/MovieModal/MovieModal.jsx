@@ -67,8 +67,9 @@ export const MovieModal = () => {
                   <TableName>Vote / Votes</TableName>
                   <TableValue>
                     {' '}
-                    <UserScore>{movie.vote_average.toFixed(1)}</UserScore>/{' '}
-                    {movie.vote_count}
+                    <UserScore>
+                      {movie.vote_average.toFixed(1)}
+                    </UserScore> / {movie.vote_count}
                   </TableValue>
                 </tr>
                 <tr>

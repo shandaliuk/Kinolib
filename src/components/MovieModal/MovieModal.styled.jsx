@@ -12,7 +12,7 @@ export const ModalContent = styled.div`
   align-items: center;
   overflow: auto;
   outline: none;
-  background: rgb(255, 255, 255);
+  background-color: rgba(3, 10, 2, 0.85);
 
   @media screen and (min-width: 768px) {
     top: 50%;
@@ -42,7 +42,6 @@ export const Overlay = styled.div`
 
 export const ModalImage = styled.img`
   width: 240px;
-  border-radius: 5px;
   margin-bottom: 20px;
 
   @media screen and (min-width: 768px) {
@@ -86,7 +85,7 @@ export const TableName = styled.td`
   font-weight: 200;
   font-size: 12px;
   line-height: 1.33;
-  color: ${props => props.theme.colors.secondary};
+  color: ${props => props.theme.colors.accent};
 
   @media screen and (min-width: 1280px) {
     min-width: 152px;
@@ -105,7 +104,7 @@ export const UserScore = styled.span`
   height: 16px;
   border-radius: 5px;
   background-color: ${props => props.theme.colors.accent};
-  color: ${props => props.theme.colors.primary};
+  color: #030a02;
   text-align: center;
 `;
 
@@ -122,6 +121,7 @@ export const Overview = styled.p`
   font-size: 12px;
   line-height: 1.67;
   margin-bottom: 20px;
+  color: ${props => props.theme.colors.accent};
 `;
 
 export const ModalButtonList = styled.ul`
@@ -139,9 +139,9 @@ export const WatchedModalButton = styled.button`
   line-height: 1.33;
   text-align: center;
   text-transform: uppercase;
-  color: ${props => props.theme.colors.tertiary};
+  color: ${props => props.theme.colors.primary};
   background-color: transparent;
-  border: 1px solid ${props => props.theme.colors.tertiary};
+  border: 1px solid ${props => props.theme.colors.primary};
   border-radius: 5px;
   outline: none;
   transition: background ${props => props.theme.transitions.main},
@@ -150,7 +150,7 @@ export const WatchedModalButton = styled.button`
   &:hover,
   &:focus {
     background: ${props => props.theme.colors.accent};
-    color: ${props => props.theme.colors.primary};
+    color: #030a02;
     border: 1px solid transparent;
   }
 
@@ -176,9 +176,9 @@ export const QueueModalButton = styled.button`
   line-height: 1.33;
   text-align: center;
   text-transform: uppercase;
-  color: ${props => props.theme.colors.tertiary};
+  color: ${props => props.theme.colors.primary};
   background-color: transparent;
-  border: 1px solid ${props => props.theme.colors.tertiary};
+  border: 1px solid ${props => props.theme.colors.primary};
   border-radius: 5px;
   outline: none;
   transition: background ${props => props.theme.transitions.main},
@@ -187,7 +187,7 @@ export const QueueModalButton = styled.button`
   &:hover,
   &:focus {
     background: ${props => props.theme.colors.accent};
-    color: ${props => props.theme.colors.primary};
+    color: #030a02;
     border: 1px solid transparent;
   }
 
@@ -212,6 +212,13 @@ export const CloseButton = styled.button`
   right: 8px;
   background-color: transparent;
   border: none;
+  color: ${props => props.theme.colors.primary};
+  transition: color ${props => props.theme.transitions.main};
+
+  &:hover,
+  &:focus {
+    color: ${props => props.theme.colors.accent};
+  }
 `;
 
 export const CloseIcon = styled.svg`

@@ -18,18 +18,18 @@ export const SitePagination = styled(ReactPaginate)`
     border-radius: 5px;
 
     &.selected {
-      background-color: ${props => props.theme.colors.card};
-      color: ${props => props.theme.colors.primary};
+      background-color: ${props => props.theme.colors.accent};
+      color: #030a02;
       pointer-events: none;
     }
 
     &.next,
     &.previous {
-      background-color: ${props => props.theme.colors.pagination};
+      background-color: transparent;
 
       &:hover,
       &:focus {
-        color: ${props => props.theme.colors.primary};
+        color: ${props => props.theme.colors.accent};
       }
     }
 
@@ -52,7 +52,7 @@ export const SitePagination = styled(ReactPaginate)`
 
   a:hover,
   &:focus {
-    background-color: ${props => props.theme.colors.pagination};
+    background-color: rgb(224, 234, 210, 0.3);
     color: ${props => props.theme.colors.card};
   }
 `;

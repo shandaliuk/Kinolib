@@ -1,6 +1,7 @@
 import { useLocation } from 'react-router-dom';
 import { getGenres, getYear, normalizeTitle } from 'services/serviceApi';
 import { MovieLink, Image, MovieTitle, InfoWrapper } from './Movie.styled';
+import unavaliablePoster from 'images/unavailable-poster.jpg';
 
 export const Movie = ({ id, title, poster, date, genreIds }) => {
   const location = useLocation();
@@ -11,7 +12,7 @@ export const Movie = ({ id, title, poster, date, genreIds }) => {
         src={
           poster
             ? `https://image.tmdb.org/t/p/w500${poster}`
-            : 'https://images.pexels.com/photos/65128/pexels-photo-65128.jpeg'
+            : unavaliablePoster
         }
         alt={`Movie: ${title}`}
       />

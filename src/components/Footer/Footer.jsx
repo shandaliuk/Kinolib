@@ -1,5 +1,5 @@
 import { Container } from 'components/Container/Container';
-import { PageFooter, FooterText, Author } from './Footer.styled';
+import { PageFooter, FooterText, Author, AuthorLink } from './Footer.styled';
 
 export const Footer = () => {
   return (
@@ -7,7 +7,12 @@ export const Footer = () => {
       <Container>
         <FooterText>
           © 2023 | All Rights Reserved |{' '}
-          <Author>Developed with love by GoIT Students</Author>
+          <Author>
+            Developed by{' '}
+            <AuthorLink to="https://github.com/shandaliuk" target="_blank">
+              shandaliuk
+            </AuthorLink>
+          </Author>
         </FooterText>
       </Container>
     </PageFooter>
