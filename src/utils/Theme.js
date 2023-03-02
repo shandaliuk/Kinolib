@@ -10,7 +10,7 @@ export const theme = {
     pagination: '#f7f7f7',
   },
   fonts: {
-    primary: "'Roboto', sans-serif",
+    primary: "'Kanit', sans-serif",
   },
   transitions: {
     main: '250ms cubic-bezier(0.4, 0, 0.2, 1)',

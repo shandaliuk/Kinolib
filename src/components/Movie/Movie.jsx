@@ -1,12 +1,12 @@
-import { Link, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { getGenres, getYear, normalizeTitle } from 'services/serviceApi';
-import { Image, MovieTitle, InfoWrapper } from './Movie.styled';
+import { MovieLink, Image, MovieTitle, InfoWrapper } from './Movie.styled';
 
 export const Movie = ({ id, title, poster, date, genreIds }) => {
   const location = useLocation();
 
   return (
-    <Link to={`${id}`} state={{ from: location }}>
+    <MovieLink to={`${id}`} state={{ from: location }}>
       <Image
         src={
           poster
@@ -20,6 +20,6 @@ export const Movie = ({ id, title, poster, date, genreIds }) => {
         <ul>{getGenres(genreIds)} </ul>
         <p>&nbsp;| {getYear(date)}</p>
       </InfoWrapper>
-    </Link>
+    </MovieLink>
   );
 };

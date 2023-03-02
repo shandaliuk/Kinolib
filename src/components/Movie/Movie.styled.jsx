@@ -22,7 +22,7 @@ export const Image = styled.img`
 `;
 
 export const MovieTitle = styled.h2`
-  font-weight: 500;
+  font-weight: 200;
   font-size: 12px;
   line-height: 1.17;
   text-transform: uppercase;
@@ -40,7 +40,7 @@ export const MovieTitle = styled.h2`
 
 export const InfoWrapper = styled.div`
   display: flex;
-  font-weight: 500;
+  font-weight: 200;
   font-size: 12px;
   line-height: 1.17;
   color: ${props => props.theme.colors.card};

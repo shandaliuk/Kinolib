@@ -63,7 +63,7 @@ export const Info = styled.div`
 `;
 
 export const ModalTitle = styled.h2`
-  font-weight: 500;
+  font-weight: 200;
   font-size: 20px;
   line-height: 1.15;
   margin-bottom: 20px;
@@ -83,7 +83,7 @@ export const Table = styled.table`
 export const TableName = styled.td`
   vertical-align: top;
   min-width: 108px;
-  font-weight: 500;
+  font-weight: 200;
   font-size: 12px;
   line-height: 1.33;
   color: ${props => props.theme.colors.secondary};
@@ -96,7 +96,7 @@ export const TableName = styled.td`
 export const TableValue = styled.td`
   font-size: 12px;
   line-height: 1.33;
-  font-weight: 500;
+  font-weight: 200;
 `;
 
 export const UserScore = styled.span`
@@ -111,14 +111,14 @@ export const UserScore = styled.span`
 
 export const About = styled.h3`
   margin-bottom: 8px;
-  font-weight: 500;
+  font-weight: 200;
   font-size: 12px;
   line-height: 1.33;
   text-transform: uppercase;
 `;
 
 export const Overview = styled.p`
-  font-weight: 500;
+  font-weight: 200;
   font-size: 12px;
   line-height: 1.67;
   margin-bottom: 20px;
@@ -134,7 +134,7 @@ export const WatchedModalButton = styled.button`
   width: 110px;
   padding: 5px 10px;
   font-family: inherit;
-  font-weight: 500;
+  font-weight: 200;
   font-size: 12px;
   line-height: 1.33;
   text-align: center;
@@ -171,7 +171,7 @@ export const QueueModalButton = styled.button`
   width: 110px;
   padding: 13px 0px;
   font-family: inherit;
-  font-weight: 500;
+  font-weight: 200;
   font-size: 12px;
   line-height: 1.33;
   text-align: center;

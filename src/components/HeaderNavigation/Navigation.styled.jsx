@@ -19,7 +19,7 @@ export const List = styled.ul`
 `;
 
 export const NavigationLink = styled(NavLink)`
-  font-weight: 500;
+  font-weight: 200;
   font-size: 12px;
   line-height: 1.17;
   text-align: center;

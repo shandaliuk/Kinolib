@@ -45,7 +45,7 @@ export const SitePagination = styled(ReactPaginate)`
     width: 100%;
     height: 100%;
     border-radius: 5px;
-    font-weight: 500;
+    font-weight: 200;
     font-size: 12px;
     line-height: 1.33;
   }

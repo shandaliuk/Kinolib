@@ -25,7 +25,7 @@ export const Input = styled(Field)`
   background-color: transparent;
   border: none;
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 200;
   line-height: 1.14;
   color: ${props => props.theme.colors.primary};
   outline: none;
@@ -59,7 +59,7 @@ export const ErrorText = styled.p`
   display: block;
   margin-top: 16px;
   font-size: 14px;
-  font-weight: 400;
+  font-weight: 200;
   line-height: 1.14;
   color: ${props => props.theme.colors.error};
 

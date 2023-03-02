@@ -7,9 +7,10 @@ export const GlobalStyle = createGlobalStyle`
 }
 
 body {
-  /* background-image: url(${font});
+  background-image: url(${font});
+  background-size: contain;
   background-repeat: no-repeat;
-  background-attachment: fixed; */
+  background-attachment: scroll;
 }
 
 ul,
@@ -49,8 +50,7 @@ button, input {
 
 body {
     font-family: ${props => props.theme.fonts.primary};
-    background-color: black;
-    /* background-color: ${props => props.theme.colors.primary}; */
+    background-color: #030a02;
     color: ${props => props.theme.colors.tertiary};
     padding: 0;
 }
