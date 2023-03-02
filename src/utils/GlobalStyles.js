@@ -1,8 +1,15 @@
 import { createGlobalStyle } from 'styled-components';
+import font from 'images/font.jpg';
 
 export const GlobalStyle = createGlobalStyle`
 *, ::before, ::after {
   box-sizing: border-box;
+}
+
+body {
+  /* background-image: url(${font});
+  background-repeat: no-repeat;
+  background-attachment: fixed; */
 }
 
 ul,
@@ -42,8 +49,9 @@ button, input {
 
 body {
     font-family: ${props => props.theme.fonts.primary};
-    background-color: #F3E958;
+    background-color: black;
+    /* background-color: ${props => props.theme.colors.primary}; */
     color: ${props => props.theme.colors.tertiary};
-    padding: 10px;
+    padding: 0;
 }
 `;

@@ -1,17 +1,16 @@
 export const theme = {
   colors: {
-    primary: '#31CC2E',
-    secondary: '#6A377F',
+    primary: '#61de2a',
+    secondary: '#8c8c8c',
     tertiary: '#000000',
-    background: '#ecff00',
     footer: '#545454',
     card: '#ff6b08',
     error: '#ff001b',
-    accent: '#ff6b08',
+    accent: '#ffffff',
     pagination: '#f7f7f7',
   },
   fonts: {
-    primary: "'Press Start 2P', cursive",
+    primary: "'Roboto', sans-serif",
   },
   transitions: {
     main: '250ms cubic-bezier(0.4, 0, 0.2, 1)',

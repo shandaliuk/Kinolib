@@ -7,7 +7,7 @@ export const getGenres = ids => {
     return name;
   });
   if (genres.length === 3) {
-    return genres.slice(0, 1).join(', ') + ', Other';
+    return genres.slice(0, 2).join(', ') + ', Other';
   }
   return genres.join(', ');
 };
@@ -15,8 +15,8 @@ export const getGenres = ids => {
 export const getYear = date => date.slice(0, 4);
 
 export const normalizeTitle = title => {
-  if (title.length > 15) {
-    return title.slice(0, 14) + '...';
+  if (title.length > 34) {
+    return title.slice(0, 31) + '...';
   }
   return title;
 };

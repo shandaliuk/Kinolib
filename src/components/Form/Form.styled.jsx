@@ -3,10 +3,8 @@ import { Field } from 'formik';
 
 export const FormWrapper = styled.div`
   display: flex;
-  padding: 5px;
+  border-bottom: 0.5px solid ${props => props.theme.colors.primary};
   transition: border-bottom ${props => props.theme.transitions.main};
-  border: 2px solid ${props => props.theme.colors.tertiary};
-  box-shadow: 5px 5px 0px 0px rgba(0, 0, 0, 1);
 
   @media screen and (min-width: 768px) {
     width: 336px;
@@ -18,7 +16,7 @@ export const FormWrapper = styled.div`
   }
 
   &:focus-within {
-    background-color: ${props => props.theme.colors.accent};
+    border-bottom: 0.5px solid ${props => props.theme.colors.accent};
   }
 `;
 
