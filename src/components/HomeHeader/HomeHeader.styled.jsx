@@ -2,11 +2,10 @@ import styled from 'styled-components';
 
 export const HeaderHome = styled.header`
   padding-top: 40px;
-  padding-bottom: 92px;
-
-  @media screen and (min-width: 768px) {
-    padding-bottom: 82px;
-  }
+  position: absolute;
+  top: 0;
+  right: 50%;
+  transform: translateX(50%);
 `;
 
 /* .header.rejected {

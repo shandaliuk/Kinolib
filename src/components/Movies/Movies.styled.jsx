@@ -1,12 +1,18 @@
 import styled from 'styled-components';
+import font from 'images/font.jpg';
 
 export const MoviesSection = styled.section`
-  padding-top: 20px;
-  padding-bottom: 40px;
+  padding-top: 230px;
+  padding-bottom: 70px;
+  background-image: url(${font});
+  background-size: auto;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
 
   @media screen and (min-width: 768px) {
-    padding-top: 60px;
-    padding-bottom: 60px;
+    background-size: contain;
+    padding-top: 217px;
+    padding-bottom: 90px;
   }
 `;
 

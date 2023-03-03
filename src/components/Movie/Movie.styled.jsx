@@ -3,14 +3,18 @@ import styled from 'styled-components';
 
 export const MovieLink = styled(Link)`
   display: block;
-  background-color: rgba(3, 10, 2, 0.5);
   text-align: center;
   padding-bottom: 12px;
-  transition: background-color ${props => props.theme.transitions.main};
+  border-bottom: 1px solid transparent;
+  transition: background-color ${props => props.theme.transitions.main},
+    border ${props => props.theme.transitions.main},
+    box-shadow ${props => props.theme.transitions.main};
 
   &:hover,
   &:focus {
-    background-color: rgb(224, 234, 210, 0.3);
+    background-color: rgba(3, 10, 2, 0.5);
+    box-shadow: ${props => props.theme.shadows.box};
+    border-bottom: 1px solid ${props => props.theme.colors.primary};
   }
 `;
 
@@ -57,7 +61,7 @@ export const InfoWrapper = styled.div`
   font-weight: 200;
   font-size: 12px;
   line-height: 1.17;
-  color: ${props => props.theme.colors.card};
+  color: ${props => props.theme.colors.accent};
 
   @media screen and (min-width: 768px) {
     line-height: 1.3;

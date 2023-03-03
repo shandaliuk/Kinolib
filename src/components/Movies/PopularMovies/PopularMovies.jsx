@@ -17,7 +17,7 @@ export const PopularMovies = () => {
   const handleClick = () => setPage(page => page + 1);
 
   return (
-    <main>
+    <>
       <MoviesSection>
         <Container>
           {error && <p>Something went wrong :(</p>}
@@ -50,6 +50,6 @@ export const PopularMovies = () => {
         </Container>
       </MoviesSection>
       <Outlet />
-    </main>
+    </>
   );
 };

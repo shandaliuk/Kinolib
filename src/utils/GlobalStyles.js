@@ -1,16 +1,8 @@
 import { createGlobalStyle } from 'styled-components';
-import font from 'images/font.jpg';
 
 export const GlobalStyle = createGlobalStyle`
 *, ::before, ::after {
   box-sizing: border-box;
-}
-
-body {
-  background-image: url(${font});
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-attachment: scroll;
 }
 
 ul,
@@ -49,9 +41,10 @@ button, input {
 }
 
 body {
+    position: relative; 
     font-family: ${props => props.theme.fonts.primary};
-    background-color: #030a02;
-    color: ${props => props.theme.colors.primary};
     padding: 0;
+    background-color: ${props => props.theme.colors.secondary};
+    color: ${props => props.theme.colors.primary};
 }
 `;

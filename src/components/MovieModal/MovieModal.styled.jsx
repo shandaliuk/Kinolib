@@ -13,6 +13,9 @@ export const ModalContent = styled.div`
   overflow: auto;
   outline: none;
   background-color: rgba(3, 10, 2, 0.85);
+  border: 1px solid ${props => props.theme.colors.primary};
+  box-shadow: ${props => props.theme.shadows.box};
+  overflow: hidden;
 
   @media screen and (min-width: 768px) {
     top: 50%;
@@ -145,7 +148,8 @@ export const WatchedModalButton = styled.button`
   border-radius: 5px;
   outline: none;
   transition: background ${props => props.theme.transitions.main},
-    border ${props => props.theme.transitions.main};
+    border ${props => props.theme.transitions.main},
+    color ${props => props.theme.transitions.main};
 
   &:hover,
   &:focus {
@@ -182,7 +186,8 @@ export const QueueModalButton = styled.button`
   border-radius: 5px;
   outline: none;
   transition: background ${props => props.theme.transitions.main},
-    border ${props => props.theme.transitions.main};
+    border ${props => props.theme.transitions.main},
+    color ${props => props.theme.transitions.main};
 
   &:hover,
   &:focus {

@@ -9,6 +9,7 @@ export const LoginButton = styled.button`
   text-align: center;
   text-transform: uppercase;
   color: ${props => props.theme.colors.primary};
+  text-shadow: ${props => props.theme.shadows.text};
   background-color: transparent;
   border: 1px solid ${props => props.theme.colors.primary};
   outline: none;
@@ -18,8 +19,8 @@ export const LoginButton = styled.button`
 
   &:hover,
   &:focus {
-    background: #e0ead2;
-    color: #030a02;
+    background: ${props => props.theme.colors.accent};
+    color: ${props => props.theme.colors.secondary};
     border: 1px solid transparent;
   }
 

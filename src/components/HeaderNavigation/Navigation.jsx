@@ -7,7 +7,7 @@ export const HeaderNavigation = () => {
       <Logo />
       <List>
         <li>
-          <NavigationLink to="/">Home</NavigationLink>
+          <NavigationLink to="/movies/trending">Trending</NavigationLink>
         </li>
         <li>
           <NavigationLink to="/library">My library</NavigationLink>

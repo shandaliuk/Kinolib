@@ -27,6 +27,7 @@ export const LogoTitle = styled.span`
   line-height: 1.17;
   text-align: center;
   text-transform: uppercase;
+  text-shadow: ${props => props.theme.shadows.text};
 
   @media screen and (min-width: 768px) {
     display: block;

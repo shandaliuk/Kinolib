@@ -16,7 +16,7 @@ export const FormWrapper = styled.div`
   }
 
   &:focus-within {
-    border-bottom: 0.5px solid ${props => props.theme.colors.accent};
+    border-bottom: 1px solid ${props => props.theme.colors.accent};
   }
 `;
 

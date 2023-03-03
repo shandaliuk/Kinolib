@@ -6,6 +6,7 @@ export const SitePagination = styled(ReactPaginate)`
   justify-content: center;
   align-items: center;
   margin-top: 40px;
+  padding-bottom: 40px;
 
   @media screen and (min-width: 768px) {
     margin-top: 60px;
@@ -15,11 +16,10 @@ export const SitePagination = styled(ReactPaginate)`
     position: relative;
     width: 40px;
     height: 40px;
-    border-radius: 5px;
 
     &.selected {
-      background-color: ${props => props.theme.colors.accent};
-      color: #030a02;
+      color: ${props => props.theme.colors.accent};
+      border: 1px solid ${props => props.theme.colors.accent};
       pointer-events: none;
     }
 

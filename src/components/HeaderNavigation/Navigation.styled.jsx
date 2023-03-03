@@ -6,6 +6,7 @@ export const NavigationHeader = styled.nav`
   flex-grow: 1;
   align-items: center;
   justify-content: space-between;
+  text-shadow: ${props => props.theme.shadows.text};
 `;
 
 export const List = styled.ul`
@@ -32,8 +33,9 @@ export const NavigationLink = styled(NavLink)`
     content: '';
     display: block;
     width: 100%;
-    height: 3px;
-    background-color: ${props => props.theme.colors.error};
+    height: 1px;
+    margin-top: 2px;
+    background-color: ${props => props.theme.colors.accent};
   }
 
   &:hover,
