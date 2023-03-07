@@ -8,8 +8,8 @@ import { MoviesHome } from './MoviesHome/MoviesHome';
 import { TrendingMovies } from 'pages/TrendingMovies/TrendingMovies';
 import { SearchedMovies } from './Movies/SearchedMovies/SearchedMovies';
 import { Library } from 'pages/Library/Library';
-import { Watched } from './Watched/Watched';
-import { Queue } from './Queue/Queue';
+import { Watched } from '../pages/Watched/Watched';
+import { Queue } from '../pages/Queue/Queue';
 import { MovieModal } from './MovieModal/MovieModal';
 
 export const App = () => {

@@ -18,6 +18,7 @@ export const Register = () => {
       await register(values.email, values.password);
       toast.success('Successfull registration!');
     } catch (error) {
+      console.log(error);
       toast.error('The user already exists!');
     }
 
@@ -37,13 +38,13 @@ export const Register = () => {
             >
               <AuthForm>
                 <AuthInput
-                  type="text"
+                  type="email"
                   autoComplete="off"
                   placeholder="Email"
                   name="email"
                 />
                 <AuthInput
-                  type="text"
+                  type="password"
                   autoComplete="off"
                   placeholder="Password"
                   name="password"

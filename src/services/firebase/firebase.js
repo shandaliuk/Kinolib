@@ -1,4 +1,6 @@
 import { initializeApp } from 'firebase/app';
+import { getFirestore, collection } from 'firebase/firestore';
+// import { getAuth } from 'firebase/auth';
 
 const AUTH_KEY = process.env.REACT_APP_AUTH_API_KEY;
 
@@ -12,3 +14,7 @@ const firebaseConfig = {
 };
 
 export const app = initializeApp(firebaseConfig);
+
+export const dataBase = getFirestore(app);
+
+export const createUserCollection = id => collection(dataBase, `users`);

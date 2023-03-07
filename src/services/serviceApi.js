@@ -1,4 +1,5 @@
 import allGenres from 'services/moviesApi/genres.json';
+import { getAuth } from 'firebase/auth';
 
 export const getGenres = ids => {
   const fixedNumberIds = ids.slice(0, 3);
@@ -20,3 +21,7 @@ export const normalizeTitle = title => {
   }
   return title;
 };
+
+const auth = getAuth();
+
+export const getCurrentUser = () => auth.currentUser;

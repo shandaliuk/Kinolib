@@ -1,11 +1,11 @@
 import { Formik } from 'formik';
 import { toast } from 'react-toastify';
-import { useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+// import { useSelector } from 'react-redux';
+// import { useNavigate } from 'react-router-dom';
 import { logIn } from 'redux/auth/authApi';
 import { HomeHeader } from 'components/HomeHeader/HomeHeader';
 import { Container } from 'components/Container/Container';
-import { selectAuthStatus } from 'redux/auth/selectors';
+// import { selectAuthStatus } from 'redux/auth/selectors';
 import {
   AuthSection,
   AuthTitle,
@@ -14,21 +14,23 @@ import {
   AuthSubmitButton,
   AuthLink,
 } from './Login.styled';
+import { getCurrentUser } from 'services/serviceApi';
 
 export const Login = () => {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
-  const authStatus = useSelector(selectAuthStatus);
+  // const authStatus = useSelector(selectAuthStatus);
 
-  if (authStatus) {
-    navigate('/library');
-    return;
-  }
+  // if (authStatus) {
+  //   navigate('/library');
+  //   return;
+  // }
 
   const handleSubmit = async (values, actions) => {
     try {
       await logIn(values.email, values.password);
       toast.success('Logged in!');
+      console.log(getCurrentUser());
     } catch (error) {
       toast.error('Wrong e-mail/password!');
     }
