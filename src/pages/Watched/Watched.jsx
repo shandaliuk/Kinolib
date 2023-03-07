@@ -1,9 +1,11 @@
-import { useGetUserMoviesQuery } from 'services/moviesApi/moviesApi';
-// import { getCurrentUser } from 'services/serviceApi';
+import { useSelector } from 'react-redux';
+import { selectAuthStatus } from 'redux/auth/selectors';
+import { useGetUserMoviesQuery } from 'services/userMoviesApi/userMoviesApi';
 
 export const Watched = () => {
-  //   const user = getCurrentUser();
-  const movies = useGetUserMoviesQuery('ojo3ZnIlZJVJe0cx4LMTZGJsvAt2');
-
+  const { data, error, isLoading } = useGetUserMoviesQuery(
+    useSelector(selectAuthStatus)
+  );
+  console.log(isLoading);
   return null;
 };

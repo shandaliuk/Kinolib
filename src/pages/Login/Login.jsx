@@ -14,7 +14,6 @@ import {
   AuthSubmitButton,
   AuthLink,
 } from './Login.styled';
-import { getCurrentUser } from 'services/serviceApi';
 
 export const Login = () => {
   // const navigate = useNavigate();
@@ -30,7 +29,6 @@ export const Login = () => {
     try {
       await logIn(values.email, values.password);
       toast.success('Logged in!');
-      console.log(getCurrentUser());
     } catch (error) {
       toast.error('Wrong e-mail/password!');
     }

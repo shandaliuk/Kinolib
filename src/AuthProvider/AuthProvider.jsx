@@ -12,7 +12,7 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     const unsub = auth.onAuthStateChanged(user => {
       if (user !== null) {
-        dispatch(setLogIn());
+        dispatch(setLogIn(user.uid));
         return;
       }
       dispatch(setLogOut());
