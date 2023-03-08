@@ -1,11 +1,12 @@
 import { Container } from 'components/Container/Container';
 import { HeaderNavigation } from 'components/HeaderNavigation/Navigation';
+import { AuthButton } from 'AuthButton/AuthButton';
 import {
   HeaderLibrary,
   LibraryWrapper,
-  ButtonList,
-  WatchedButton,
-  QueueButton,
+  LinksList,
+  WatchedLink,
+  QueueLink,
 } from './LibraryHeader.styled';
 
 export const LibraryHeader = () => {
@@ -14,15 +15,16 @@ export const LibraryHeader = () => {
       <Container>
         <LibraryWrapper>
           <HeaderNavigation />
+          <AuthButton />
         </LibraryWrapper>
-        <ButtonList>
+        <LinksList>
           <li>
-            <WatchedButton type="button">Watched</WatchedButton>
+            <WatchedLink to="watched">Watched</WatchedLink>
           </li>
           <li>
-            <QueueButton type="button">Queue</QueueButton>
+            <QueueLink to="queue">Queue</QueueLink>
           </li>
-        </ButtonList>
+        </LinksList>
       </Container>
     </HeaderLibrary>
   );

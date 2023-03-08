@@ -1,0 +1,12 @@
+import styled from 'styled-components';
+import font from 'images/font.jpg';
+
+export const LibrarySection = styled.section`
+  min-height: 100vh;
+  padding-top: 230px;
+  padding-bottom: 40px;
+  background-image: url(${font});
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+`;

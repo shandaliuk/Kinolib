@@ -8,6 +8,7 @@ import { MoviesHome } from './MoviesHome/MoviesHome';
 import { TrendingMovies } from 'pages/TrendingMovies/TrendingMovies';
 import { SearchedMovies } from './Movies/SearchedMovies/SearchedMovies';
 import { Library } from 'pages/Library/Library';
+import { LibraryIndex } from './LibraryIndex/LibraryIndex';
 import { Watched } from '../pages/Watched/Watched';
 import { Queue } from '../pages/Queue/Queue';
 import { MovieModal } from './MovieModal/MovieModal';
@@ -29,6 +30,7 @@ export const App = () => {
           </Route>
         </Route>
         <Route path="library" element={<Library />}>
+          <Route index element={<LibraryIndex />} />
           <Route path="watched" element={<Watched />} />
           <Route path="queue" element={<Queue />} />
         </Route>

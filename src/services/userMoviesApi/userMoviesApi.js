@@ -8,10 +8,8 @@ export const userMoviesApi = createApi({
   endpoints: builder => ({
     getUserMovies: builder.query({
       queryFn: async id => {
-        console.log('id', id);
         const doc = createUserDoc(id);
         const moviesSnap = await getDoc(doc);
-        console.log(moviesSnap.data());
         return moviesSnap.data();
       },
     }),

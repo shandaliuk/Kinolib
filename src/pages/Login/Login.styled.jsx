@@ -22,6 +22,7 @@ export const AuthTitle = styled.h2`
   text-align: center;
   font-size: 30px;
   font-weight: 100;
+  text-transform: uppercase;
 `;
 
 export const AuthForm = styled(Form)`
