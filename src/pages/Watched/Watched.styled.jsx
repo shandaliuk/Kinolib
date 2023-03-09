@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import font from 'images/font.jpg';
 
-export const LibrarySection = styled.section`
+export const WatchedSection = styled.section`
   min-height: 100vh;
   padding-top: 230px;
   padding-bottom: 40px;

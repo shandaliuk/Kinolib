@@ -31,8 +31,12 @@ export const App = () => {
         </Route>
         <Route path="library" element={<Library />}>
           <Route index element={<LibraryIndex />} />
-          <Route path="watched" element={<Watched />} />
-          <Route path="queue" element={<Queue />} />
+          <Route path="watched" element={<Watched />}>
+            <Route path=":movieId" element={<MovieModal />} />
+          </Route>
+          <Route path="queue" element={<Queue />}>
+            <Route path=":movieId" element={<MovieModal />} />
+          </Route>
         </Route>
       </Route>
     </Routes>
