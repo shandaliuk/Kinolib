@@ -5,7 +5,7 @@ export const LibraryIndex = () => {
   return (
     <>
       <LibrarySection>
-        <LibraryTitle>Welcome to your library!</LibraryTitle>;
+        <LibraryTitle>Welcome to your library!</LibraryTitle>
       </LibrarySection>
     </>
   );

@@ -1,12 +1,12 @@
 import { Outlet } from 'react-router-dom';
-import { ToastContainer } from 'react-toastify';
 import { Footer } from 'components/Footer/Footer';
+import { StyledToastContainer } from './SharedLayout.styled';
 
 export const SharedLayout = () => {
   return (
     <>
       <Outlet />
-      <ToastContainer
+      <StyledToastContainer
         position="top-right"
         autoClose={5000}
         hideProgressBar={false}

@@ -1,10 +1,14 @@
 import Modal from 'react-modal';
+import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate, useLocation, useParams } from 'react-router-dom';
 import { ColorRing } from 'react-loader-spinner';
 import { toast } from 'react-toastify';
 import { selectAuthStatus } from 'redux/auth/selectors';
-import { addMovie } from 'services/userMoviesApi/userMoviesApi';
+import {
+  useAddMovieMutation,
+  useGetUserMoviesQuery,
+} from 'services/userMoviesApi/userMoviesApi';
 import { useGetMovieDetailsQuery } from 'services/moviesApi/moviesApi';
 import sprite from 'images/sprite.svg';
 import {
@@ -27,6 +31,8 @@ import {
 } from './MovieModal.styled';
 
 export const MovieModal = () => {
+  const [skip, setSkip] = useState(true);
+
   const { movieId: id } = useParams();
 
   const navigate = useNavigate();
@@ -49,10 +55,28 @@ export const MovieModal = () => {
 
   const user = useSelector(selectAuthStatus);
 
+  const { data: userMovies, isLoading: userLoading } = useGetUserMoviesQuery(
+    user,
+    { skip }
+  );
+
+  const [updateMovies] = useAddMovieMutation();
+
+  if (user && skip) {
+    setSkip(false);
+  }
+
   const handleClick = async event => {
     if (event.target.name === 'watched') {
       try {
-        await addMovie({ id: user, movie, location: 'watched' });
+        if (userMovies.watched.find(userMovie => userMovie.id === movie.id)) {
+          throw new Error();
+        }
+        await updateMovies({
+          id: user,
+          movie,
+          location: 'watched',
+        });
         toast.success('Added to your watched movies');
       } catch (error) {
         toast.error("Can't add to your watched movies");
@@ -60,7 +84,10 @@ export const MovieModal = () => {
       return;
     }
     try {
-      await addMovie({ id: user, movie, location: 'queue' });
+      if (userMovies.queue.find(userMovie => userMovie.id === movie.id)) {
+        throw new Error();
+      }
+      await updateMovies({ id: user, movie, location: 'queue' });
       toast.success('Added to your queue');
     } catch (error) {
       toast.error("Can't add to your queue");
@@ -121,22 +148,52 @@ export const MovieModal = () => {
             <Overview>{movie.overview}</Overview>
             <ModalButtonList>
               <li>
-                <WatchedModalButton
-                  type="button"
-                  name="watched"
-                  onClick={handleClick}
-                >
-                  Add to watched
-                </WatchedModalButton>
+                {!skip &&
+                !userLoading &&
+                userMovies.watched.find(
+                  userMovie => userMovie.id === movie.id
+                ) ? (
+                  <WatchedModalButton
+                    type="button"
+                    name="watched"
+                    onClick={handleClick}
+                    disabled={true}
+                  >
+                    In watched
+                  </WatchedModalButton>
+                ) : (
+                  <WatchedModalButton
+                    type="button"
+                    name="watched"
+                    onClick={handleClick}
+                  >
+                    Add to watched
+                  </WatchedModalButton>
+                )}
               </li>
               <li>
-                <QueueModalButton
-                  type="button"
-                  name="queue"
-                  onClick={handleClick}
-                >
-                  Add to queue
-                </QueueModalButton>
+                {!skip &&
+                !userLoading &&
+                userMovies.queue.find(
+                  userMovie => userMovie.id === movie.id
+                ) ? (
+                  <QueueModalButton
+                    type="button"
+                    name="queue"
+                    onClick={handleClick}
+                    disabled={true}
+                  >
+                    In queue
+                  </QueueModalButton>
+                ) : (
+                  <QueueModalButton
+                    type="button"
+                    name="queue"
+                    onClick={handleClick}
+                  >
+                    Add to queue
+                  </QueueModalButton>
+                )}
               </li>
             </ModalButtonList>
           </Info>
