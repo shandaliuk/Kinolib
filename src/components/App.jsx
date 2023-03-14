@@ -21,6 +21,7 @@ const LibraryIndex = lazy(() => import('components/LibraryIndex/LibraryIndex'));
 const Watched = lazy(() => import('pages/Watched/Watched'));
 const Queue = lazy(() => import('pages/Queue/Queue'));
 const MovieModal = lazy(() => import('components/MovieModal/MovieModal'));
+const Error = lazy(() => import('pages/Error/Error'));
 
 export const App = () => {
   return (
@@ -64,6 +65,7 @@ export const App = () => {
             </Route>
           </Route>
         </Route>
+        <Route path="*" element={<Error />} />
       </Routes>
     </Suspense>
   );
