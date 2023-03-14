@@ -1,11 +1,8 @@
 import { Formik } from 'formik';
 import { toast } from 'react-toastify';
-// import { useSelector } from 'react-redux';
-// import { useNavigate } from 'react-router-dom';
 import { logIn } from 'redux/auth/authApi';
 import { HomeHeader } from 'components/HomeHeader/HomeHeader';
 import { Container } from 'components/Container/Container';
-// import { selectAuthStatus } from 'redux/auth/selectors';
 import {
   AuthSection,
   AuthTitle,
@@ -15,16 +12,7 @@ import {
   AuthLink,
 } from './Login.styled';
 
-export const Login = () => {
-  // const navigate = useNavigate();
-
-  // const authStatus = useSelector(selectAuthStatus);
-
-  // if (authStatus) {
-  //   navigate('/library');
-  //   return;
-  // }
-
+const Login = () => {
   const handleSubmit = async (values, actions) => {
     try {
       await logIn(values.email, values.password);
@@ -69,3 +57,5 @@ export const Login = () => {
     </>
   );
 };
+
+export default Login;

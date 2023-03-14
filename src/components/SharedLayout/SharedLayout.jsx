@@ -2,7 +2,7 @@ import { Outlet } from 'react-router-dom';
 import { Footer } from 'components/Footer/Footer';
 import { StyledToastContainer } from './SharedLayout.styled';
 
-export const SharedLayout = () => {
+const SharedLayout = () => {
   return (
     <>
       <Outlet />
@@ -22,3 +22,5 @@ export const SharedLayout = () => {
     </>
   );
 };
+
+export default SharedLayout;

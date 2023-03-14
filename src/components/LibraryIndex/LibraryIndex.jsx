@@ -1,7 +1,7 @@
 import { LibrarySection } from './LibraryIndex.styled';
 import { LibraryTitle } from './LibraryIndex.styled';
 
-export const LibraryIndex = () => {
+const LibraryIndex = () => {
   return (
     <>
       <LibrarySection>
@@ -10,3 +10,5 @@ export const LibraryIndex = () => {
     </>
   );
 };
+
+export default LibraryIndex;

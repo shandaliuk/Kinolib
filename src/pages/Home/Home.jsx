@@ -1,9 +1,11 @@
 import { Navigate } from 'react-router-dom';
 
-export const Home = () => {
+const Home = () => {
   return (
     <>
       <Navigate to="movies" />
     </>
   );
 };
+
+export default Home;

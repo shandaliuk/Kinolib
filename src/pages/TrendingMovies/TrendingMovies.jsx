@@ -1,9 +1,11 @@
 import { PopularMovies } from 'components/Movies/PopularMovies/PopularMovies';
 
-export const TrendingMovies = () => {
+const TrendingMovies = () => {
   return (
     <main>
       <PopularMovies />
     </main>
   );
 };
+
+export default TrendingMovies;

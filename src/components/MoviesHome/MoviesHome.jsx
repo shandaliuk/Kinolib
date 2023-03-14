@@ -1,5 +1,7 @@
 import { Navigate } from 'react-router-dom';
 
-export const MoviesHome = () => {
+const MoviesHome = () => {
   return <Navigate to="trending" />;
 };
+
+export default MoviesHome;

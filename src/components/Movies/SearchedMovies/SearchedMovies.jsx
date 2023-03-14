@@ -12,7 +12,7 @@ import {
   MoviesList,
 } from '../PopularMovies/PopularMovies.styled';
 
-export const SearchedMovies = () => {
+const SearchedMovies = () => {
   const { query } = useParams();
 
   const [page, setPage] = useState(1);
@@ -57,3 +57,5 @@ export const SearchedMovies = () => {
     </main>
   );
 };
+
+export default SearchedMovies;

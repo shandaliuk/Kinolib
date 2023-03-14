@@ -7,6 +7,7 @@ import { toast } from 'react-toastify';
 import { selectAuthStatus } from 'redux/auth/selectors';
 import {
   useAddMovieMutation,
+  useDeleteMovieMutation,
   useGetUserMoviesQuery,
 } from 'services/userMoviesApi/userMoviesApi';
 import { useGetMovieDetailsQuery } from 'services/moviesApi/moviesApi';
@@ -30,7 +31,7 @@ import {
   CloseIcon,
 } from './MovieModal.styled';
 
-export const MovieModal = () => {
+const MovieModal = () => {
   const [skip, setSkip] = useState(true);
 
   const { movieId: id } = useParams();
@@ -60,37 +61,76 @@ export const MovieModal = () => {
     { skip }
   );
 
-  const [updateMovies] = useAddMovieMutation();
+  const [addMovie] = useAddMovieMutation();
+
+  const [deleteMovie] = useDeleteMovieMutation();
 
   if (user && skip) {
     setSkip(false);
   }
 
   const handleClick = async event => {
-    if (event.target.name === 'watched') {
-      try {
-        if (userMovies.watched.find(userMovie => userMovie.id === movie.id)) {
-          throw new Error();
+    const movieToSave = {
+      id: movie.id,
+      title: movie.title,
+      genres: movie.genres,
+      poster: movie.poster_path,
+      date: movie.release_date,
+    };
+
+    switch (event.target.name) {
+      case 'watched':
+        try {
+          if (userMovies.watched.find(userMovie => userMovie.id === movie.id)) {
+            throw new Error();
+          }
+          await addMovie({
+            id: user,
+            movieToSave,
+            location: 'watched',
+          });
+          toast.success('Added to your watched movies');
+        } catch (error) {
+          toast.error("Can't add to your watched movies");
         }
-        await updateMovies({
-          id: user,
-          movie,
-          location: 'watched',
-        });
-        toast.success('Added to your watched movies');
-      } catch (error) {
-        toast.error("Can't add to your watched movies");
-      }
-      return;
-    }
-    try {
-      if (userMovies.queue.find(userMovie => userMovie.id === movie.id)) {
-        throw new Error();
-      }
-      await updateMovies({ id: user, movie, location: 'queue' });
-      toast.success('Added to your queue');
-    } catch (error) {
-      toast.error("Can't add to your queue");
+        break;
+      case 'queue':
+        try {
+          if (userMovies.queue.find(userMovie => userMovie.id === movie.id)) {
+            throw new Error();
+          }
+          await addMovie({ id: user, movieToSave, location: 'queue' });
+          toast.success('Added to your queue');
+        } catch (error) {
+          toast.error("Can't add to your queue");
+        }
+        break;
+      case 'inWatched':
+        try {
+          if (
+            !userMovies.watched.find(userMovie => userMovie.id === movie.id)
+          ) {
+            throw new Error();
+          }
+          await deleteMovie({ id: user, movieToSave, location: 'watched' });
+          toast.success('Removed from your watched movies');
+        } catch (error) {
+          toast.error("Can't remove from your watched movies");
+        }
+        break;
+      case 'inQueue':
+        try {
+          if (!userMovies.queue.find(userMovie => userMovie.id === movie.id)) {
+            throw new Error();
+          }
+          await deleteMovie({ id: user, movieToSave, location: 'queue' });
+          toast.success('Removed from your queue');
+        } catch (error) {
+          toast.error("Can't remove from your queue");
+        }
+        break;
+      default:
+        toast.error('Unknown operation');
     }
   };
 
@@ -155,9 +195,8 @@ export const MovieModal = () => {
                 ) ? (
                   <WatchedModalButton
                     type="button"
-                    name="watched"
+                    name="inWatched"
                     onClick={handleClick}
-                    disabled={true}
                   >
                     In watched
                   </WatchedModalButton>
@@ -179,9 +218,8 @@ export const MovieModal = () => {
                 ) ? (
                   <QueueModalButton
                     type="button"
-                    name="queue"
+                    name="inQueue"
                     onClick={handleClick}
-                    disabled={true}
                   >
                     In queue
                   </QueueModalButton>
@@ -207,3 +245,5 @@ export const MovieModal = () => {
     </>
   );
 };
+
+export default MovieModal;

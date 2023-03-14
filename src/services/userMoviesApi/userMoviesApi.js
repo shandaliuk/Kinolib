@@ -1,5 +1,5 @@
 import { createApi, fakeBaseQuery } from '@reduxjs/toolkit/query/react';
-import { getDoc, updateDoc, arrayUnion } from 'firebase/firestore';
+import { getDoc, updateDoc, arrayUnion, arrayRemove } from 'firebase/firestore';
 import { createUserDoc } from 'services/firebase/firebase';
 
 export const userMoviesApi = createApi({
@@ -20,12 +20,28 @@ export const userMoviesApi = createApi({
       providesTags: ['UserMovies'],
     }),
     addMovie: builder.mutation({
-      queryFn: async ({ location, movie, id }) => {
+      queryFn: async ({ location, movieToSave, id }) => {
         try {
           const doc = createUserDoc(id);
           await updateDoc(
             doc,
-            { [location]: arrayUnion(movie) },
+            { [location]: arrayUnion(movieToSave) },
+            { merge: true }
+          );
+          return { data: 'ok' };
+        } catch (error) {
+          return { error };
+        }
+      },
+      invalidatesTags: ['UserMovies'],
+    }),
+    deleteMovie: builder.mutation({
+      queryFn: async ({ location, movieToSave, id }) => {
+        try {
+          const doc = createUserDoc(id);
+          await updateDoc(
+            doc,
+            { [location]: arrayRemove(movieToSave) },
             { merge: true }
           );
           return { data: 'ok' };
@@ -43,4 +59,8 @@ export const userMoviesApi = createApi({
 //   await updateDoc(doc, { [location]: arrayUnion(movie) }, { merge: true });
 // };
 
-export const { useGetUserMoviesQuery, useAddMovieMutation } = userMoviesApi;
+export const {
+  useGetUserMoviesQuery,
+  useAddMovieMutation,
+  useDeleteMovieMutation,
+} = userMoviesApi;

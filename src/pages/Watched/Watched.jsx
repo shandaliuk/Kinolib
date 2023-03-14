@@ -14,7 +14,7 @@ import {
   MoviesList,
 } from 'components/Movies/PopularMovies/PopularMovies.styled';
 
-export const Watched = () => {
+const Watched = () => {
   const [skip, setSkip] = useState(true);
   const [page, setPage] = useState(1);
 
@@ -53,8 +53,8 @@ export const Watched = () => {
                         <Movie
                           id={movie.id}
                           title={movie.title}
-                          poster={movie.poster_path}
-                          date={movie.release_date}
+                          poster={movie.poster}
+                          date={movie.date}
                           genreIds={movie.genres.map(genre => genre.id)}
                         />
                       </li>
@@ -70,3 +70,5 @@ export const Watched = () => {
     </main>
   );
 };
+
+export default Watched;

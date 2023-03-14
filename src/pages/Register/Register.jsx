@@ -12,7 +12,7 @@ import {
   AuthLink,
 } from '../Login/Login.styled';
 
-export const Register = () => {
+const Register = () => {
   const handleSubmit = async (values, actions) => {
     try {
       await register(values.email, values.password);
@@ -59,3 +59,5 @@ export const Register = () => {
     </>
   );
 };
+
+export default Register;
