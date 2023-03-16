@@ -1,6 +1,6 @@
-import { lazy, Suspense } from 'react';
-import { Route, Routes } from 'react-router-dom';
-import { ColorRing } from 'react-loader-spinner';
+import { lazy } from 'react';
+import { Route, Routes, useLocation } from 'react-router-dom';
+import { AnimatePresence } from 'framer-motion';
 import { PrivateRoute } from 'components/PrivateRoute/PrivateRoute';
 import { RestrictedRoute } from 'components/RestrictedRoute/RestrictedRoute';
 
@@ -24,9 +24,11 @@ const MovieModal = lazy(() => import('components/MovieModal/MovieModal'));
 const Error = lazy(() => import('pages/Error/Error'));
 
 export const App = () => {
+  const location = useLocation();
+
   return (
-    <Suspense fallback={<ColorRing />}>
-      <Routes>
+    <AnimatePresence>
+      <Routes location={location} key={location.key}>
         <Route path="/" element={<SharedLayout />}>
           <Route index element={<Home />} />
           <Route
@@ -67,6 +69,6 @@ export const App = () => {
         </Route>
         <Route path="*" element={<Error />} />
       </Routes>
-    </Suspense>
+    </AnimatePresence>
   );
 };

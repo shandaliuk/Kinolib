@@ -1,10 +1,12 @@
 import { Outlet } from 'react-router-dom';
 import { Footer } from 'components/Footer/Footer';
 import { StyledToastContainer } from './SharedLayout.styled';
+import { Suspense } from 'react';
+import { LoadingScreen } from 'components/LoadingScreen/LoadingScreen';
 
 const SharedLayout = () => {
   return (
-    <>
+    <Suspense fallback={<LoadingScreen />}>
       <Outlet />
       <StyledToastContainer
         position="top-right"
@@ -19,7 +21,7 @@ const SharedLayout = () => {
         theme="dark"
       />
       <Footer />
-    </>
+    </Suspense>
   );
 };
 
