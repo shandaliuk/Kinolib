@@ -2,13 +2,13 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const authSlice = createSlice({
   name: 'auth',
-  initialState: null,
+  initialState: false,
   reducers: {
     setLogIn(_, action) {
       return action.payload;
     },
     setLogOut() {
-      return null;
+      return false;
     },
   },
 });
