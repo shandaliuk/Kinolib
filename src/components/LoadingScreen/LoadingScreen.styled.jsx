@@ -2,14 +2,11 @@ import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
 export const Screen = styled(motion.div)`
-  display: flex;
-  position: absolute;
+  position: fixed;
   top: 0;
+  left: 0;
   right: 0;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-  min-width: 100vw;
-  z-index: 999;
-  background-color: white;
+  bottom: 0;
+  background-color: ${props => props.theme.colors.accent};
+  z-index: 2;
 `;

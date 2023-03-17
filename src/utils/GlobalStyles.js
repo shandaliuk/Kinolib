@@ -47,4 +47,14 @@ body {
     background-color: ${props => props.theme.colors.secondary};
     color: ${props => props.theme.colors.primary};
 }
+
+.privacy-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: ${props => props.theme.colors.primary};
+  z-index: 2;
+}
 `;

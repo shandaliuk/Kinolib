@@ -1,6 +1,8 @@
 import { Formik } from 'formik';
 import { toast } from 'react-toastify';
 import { logIn } from 'redux/auth/authApi';
+import { useIsPresent } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { HomeHeader } from 'components/HomeHeader/HomeHeader';
 import { Container } from 'components/Container/Container';
 import {
@@ -13,6 +15,8 @@ import {
 } from './Login.styled';
 
 const Login = () => {
+  const isPresent = useIsPresent();
+
   const handleSubmit = async (values, actions) => {
     try {
       await logIn(values.email, values.password);
@@ -54,6 +58,13 @@ const Login = () => {
           </Container>
         </AuthSection>
       </main>
+      <motion.div
+        initial={{ scaleX: 1 }}
+        animate={{ scaleX: 0, transition: { duration: 0.5, ease: 'circOut' } }}
+        exit={{ scaleX: 1, transition: { duration: 0.5, ease: 'circIn' } }}
+        style={{ originX: isPresent ? 0 : 1 }}
+        className="privacy-screen"
+      />
     </>
   );
 };
