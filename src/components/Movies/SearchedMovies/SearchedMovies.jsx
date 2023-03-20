@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { Outlet } from 'react-router-dom';
-import { ColorRing } from 'react-loader-spinner';
 import { useParams } from 'react-router-dom';
 import { useIsPresent } from 'framer-motion';
 import { motion } from 'framer-motion';
@@ -27,12 +26,10 @@ const SearchedMovies = () => {
 
   return (
     <>
-      {' '}
       <main>
         <MoviesSection>
           <Container>
             {error && <p>Something went wrong :(</p>}
-            {isLoading && <ColorRing />}
             {!isLoading && !error && (
               <>
                 <HiddenTitle>Trending movies</HiddenTitle>
@@ -60,14 +57,17 @@ const SearchedMovies = () => {
           </Container>
         </MoviesSection>
         <Outlet />
+        <motion.div
+          initial={{ scaleX: 1 }}
+          animate={{
+            scaleX: 0,
+            transition: { duration: 0.5, ease: 'circOut' },
+          }}
+          exit={{ scaleX: 1, transition: { duration: 0.5, ease: 'circIn' } }}
+          style={{ originX: isPresent ? 0 : 1 }}
+          className="privacy-screen"
+        />
       </main>
-      <motion.div
-        initial={{ scaleX: 1 }}
-        animate={{ scaleX: 0, transition: { duration: 0.5, ease: 'circOut' } }}
-        exit={{ scaleX: 1, transition: { duration: 0.5, ease: 'circIn' } }}
-        style={{ originX: isPresent ? 0 : 1 }}
-        className="privacy-screen"
-      />
     </>
   );
 };

@@ -2,7 +2,6 @@ import Modal from 'react-modal';
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate, useLocation, useParams } from 'react-router-dom';
-import { ColorRing } from 'react-loader-spinner';
 import { toast } from 'react-toastify';
 import { selectAuthStatus } from 'redux/auth/selectors';
 import {
@@ -137,7 +136,6 @@ const MovieModal = () => {
   return (
     <>
       {error && <p>Something went wrong :(</p>}
-      {isLoading && <ColorRing />}
       {!error && !isLoading && (
         <Modal
           isOpen={true}
@@ -145,7 +143,20 @@ const MovieModal = () => {
           className="_"
           overlayClassName="_"
           contentElement={(props, children) => (
-            <ModalContent {...props}>{children}</ModalContent>
+            <ModalContent
+              {...props}
+              initial={{ opacity: 0 }}
+              animate={{
+                opacity: 1,
+                transition: { duration: 0.3, ease: 'circOut' },
+              }}
+              exit={{
+                opacity: 0,
+                transition: { duration: 0.3, ease: 'circOut' },
+              }}
+            >
+              {children}
+            </ModalContent>
           )}
           overlayElement={(props, contentElement) => (
             <Overlay {...props}>{contentElement}</Overlay>

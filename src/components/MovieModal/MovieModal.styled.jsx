@@ -1,6 +1,7 @@
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 
-export const ModalContent = styled.div`
+export const ModalContent = styled(motion.div)`
   position: absolute;
   top: 20px;
   left: 20px;

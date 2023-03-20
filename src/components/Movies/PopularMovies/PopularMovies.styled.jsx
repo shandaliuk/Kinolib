@@ -8,6 +8,7 @@ export const MoviesSection = styled.section`
   background-size: auto;
   background-repeat: no-repeat;
   background-attachment: scroll;
+  min-height: 100vh;
 
   @media screen and (min-width: 768px) {
     background-size: contain;

@@ -1,7 +1,7 @@
 import { Route, Routes, useLocation } from 'react-router-dom';
-import { PrivateRoute } from 'components/PrivateRoute/PrivateRoute';
+import { PrivateRoute } from 'PrivateRoute/PrivateRoute';
 import { AnimatePresence } from 'framer-motion';
-import { RestrictedRoute } from 'components/RestrictedRoute/RestrictedRoute';
+import { RestrictedRoute } from 'RestrictedRoute/RestrictedRoute';
 import SharedLayout from './SharedLayout/SharedLayout';
 import Home from 'pages/Home/Home';
 import Login from 'pages/Login/Login';
