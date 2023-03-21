@@ -143,20 +143,7 @@ const MovieModal = () => {
           className="_"
           overlayClassName="_"
           contentElement={(props, children) => (
-            <ModalContent
-              {...props}
-              initial={{ opacity: 0 }}
-              animate={{
-                opacity: 1,
-                transition: { duration: 0.3, ease: 'circOut' },
-              }}
-              exit={{
-                opacity: 0,
-                transition: { duration: 0.3, ease: 'circOut' },
-              }}
-            >
-              {children}
-            </ModalContent>
+            <ModalContent {...props}>{children}</ModalContent>
           )}
           overlayElement={(props, contentElement) => (
             <Overlay {...props}>{contentElement}</Overlay>

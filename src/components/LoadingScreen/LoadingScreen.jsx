@@ -1,23 +1,19 @@
-import { useIsPresent } from 'framer-motion';
-import { motion } from 'framer-motion';
 import { Screen } from './LoadingScreen.styled';
 
-export const LoadingScreen = () => {
-  const isPresent = useIsPresent();
-
+export const LoadingScreen = ({ isLoading }) => {
   return (
-    <>
-      <Screen />
-      <motion.div
-        initial={{ scaleX: 1 }}
+    isLoading && (
+      <Screen
+        initial={{ opacity: 0 }}
         animate={{
-          scaleX: 0,
+          opacity: 1,
           transition: { duration: 0.5, ease: 'circOut' },
         }}
-        exit={{ scaleX: 1, transition: { duration: 0.5, ease: 'circIn' } }}
-        style={{ originX: isPresent ? 0 : 1 }}
-        className="privacy-screen"
+        exit={{
+          opacity: 0,
+          transition: { duration: 0.5, ease: 'circIn' },
+        }}
       />
-    </>
+    )
   );
 };

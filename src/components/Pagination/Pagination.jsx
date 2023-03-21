@@ -10,7 +10,7 @@ export const Pagination = ({ page = 1, onClick, pageCount = 20 }) => {
           <use href={sprite + '#icon-arrow-right'}></use>
         </PaginationIcon>
       }
-      // forcePage={page}
+      forcePage={page - 1}
       onClick={onClick}
       pageRangeDisplayed={2}
       pageCount={pageCount}

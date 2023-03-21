@@ -1,6 +1,6 @@
-import { useState } from 'react';
+import { useEffect } from 'react';
 import { Outlet } from 'react-router-dom';
-import { useParams } from 'react-router-dom';
+import { useParams, useSearchParams } from 'react-router-dom';
 import { useIsPresent } from 'framer-motion';
 import { motion } from 'framer-motion';
 import { useGetMovieQuery } from 'services/moviesApi/moviesApi';
@@ -14,15 +14,28 @@ import {
 } from '../PopularMovies/PopularMovies.styled';
 
 const SearchedMovies = () => {
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  useEffect(() => {
+    if (searchParams.get('page')) {
+      return;
+    }
+    setSearchParams({ page: 1 });
+  }, [searchParams, setSearchParams]);
+
   const isPresent = useIsPresent();
 
   const { query } = useParams();
 
-  const [page, setPage] = useState(1);
+  const {
+    data: movies,
+    isLoading,
+    error,
+  } = useGetMovieQuery({ page: Number(searchParams.get('page')), query });
 
-  const { data: movies, isLoading, error } = useGetMovieQuery({ page, query });
-
-  const handleClick = event => setPage(event.nextSelectedPage + 1);
+  const handleClick = event => {
+    setSearchParams({ page: event.nextSelectedPage + 1 });
+  };
 
   return (
     <>
@@ -50,6 +63,7 @@ const SearchedMovies = () => {
                 </MoviesList>
                 <Pagination
                   onClick={handleClick}
+                  page={Number(searchParams.get('page'))}
                   pageCount={movies.total_pages}
                 />
               </>

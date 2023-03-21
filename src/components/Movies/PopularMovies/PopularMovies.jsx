@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { Outlet } from 'react-router-dom';
+import { useEffect } from 'react';
+import { Outlet, useSearchParams } from 'react-router-dom';
 import { motion, useIsPresent } from 'framer-motion';
 import { useGetTrendingMoviesQuery } from 'services/moviesApi/moviesApi';
 import { Container } from 'components/Container/Container';
@@ -8,15 +8,26 @@ import { Pagination } from 'components/Pagination/Pagination';
 import { MoviesSection, HiddenTitle, MoviesList } from './PopularMovies.styled';
 
 export const PopularMovies = () => {
-  const [page, setPage] = useState(1);
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  useEffect(() => {
+    if (searchParams.get('page')) {
+      return;
+    }
+    setSearchParams({ page: 1 });
+  }, [searchParams, setSearchParams]);
 
   const isPresent = useIsPresent();
 
-  // const [searchParams, setSearchParams] = useSearchParams();
+  const {
+    data: movies,
+    error,
+    isLoading,
+  } = useGetTrendingMoviesQuery(searchParams.get('page'));
 
-  const { data: movies, error, isLoading } = useGetTrendingMoviesQuery(page);
-
-  const handleClick = () => setPage(page => page + 1);
+  const handleClick = event => {
+    setSearchParams({ page: event.nextSelectedPage + 1 });
+  };
 
   return (
     <>
@@ -42,7 +53,10 @@ export const PopularMovies = () => {
                 })}
                 ;
               </MoviesList>
-              <Pagination onClick={handleClick} page={page} />
+              <Pagination
+                onClick={handleClick}
+                page={Number(searchParams.get('page'))}
+              />
             </>
           )}
         </Container>
