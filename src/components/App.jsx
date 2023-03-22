@@ -14,7 +14,6 @@ import Library from 'pages/Library/Library';
 import LibraryIndex from './LibraryIndex/LibraryIndex';
 import Watched from 'pages/Watched/Watched';
 import Queue from 'pages/Queue/Queue';
-import MovieModal from './MovieModal/MovieModal';
 import Error from 'pages/Error/Error';
 
 export const App = () => {
@@ -39,12 +38,8 @@ export const App = () => {
           />
           <Route path="movies" element={<Movies />}>
             <Route index element={<MoviesHome />} />
-            <Route path="trending" element={<TrendingMovies />}>
-              <Route path=":movieId" element={<MovieModal />} />
-            </Route>
-            <Route path=":query" element={<SearchedMovies />}>
-              <Route path=":movieId" element={<MovieModal />} />
-            </Route>
+            <Route path="trending" element={<TrendingMovies />} />
+            <Route path=":query" element={<SearchedMovies />} />
           </Route>
           <Route
             path="library"
@@ -53,12 +48,8 @@ export const App = () => {
             }
           >
             <Route index element={<LibraryIndex />} />
-            <Route path="watched" element={<Watched />}>
-              <Route path=":movieId" element={<MovieModal />} />
-            </Route>
-            <Route path="queue" element={<Queue />}>
-              <Route path=":movieId" element={<MovieModal />} />
-            </Route>
+            <Route path="watched" element={<Watched />} />
+            <Route path="queue" element={<Queue />} />
           </Route>
         </Route>
         <Route path="*" element={<Error />} />

@@ -31,7 +31,10 @@ const SearchedMovies = () => {
     data: movies,
     isLoading,
     error,
-  } = useGetMovieQuery({ page: Number(searchParams.get('page')), query });
+  } = useGetMovieQuery({
+    page: Number(searchParams.get('page') ? searchParams.get('page') : 1),
+    query,
+  });
 
   const handleClick = event => {
     setSearchParams({ page: event.nextSelectedPage + 1 });

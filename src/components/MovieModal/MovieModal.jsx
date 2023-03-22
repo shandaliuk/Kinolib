@@ -1,7 +1,6 @@
 import Modal from 'react-modal';
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
-import { useNavigate, useLocation, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { selectAuthStatus } from 'redux/auth/selectors';
 import {
@@ -30,28 +29,10 @@ import {
   CloseIcon,
 } from './MovieModal.styled';
 
-const MovieModal = () => {
+const MovieModal = ({ movieId, handleClosure }) => {
   const [skip, setSkip] = useState(true);
 
-  const { movieId: id } = useParams();
-
-  const navigate = useNavigate();
-
-  const location = useLocation();
-
-  const figurePath = () => {
-    if (location.state?.from) {
-      return location.state?.from;
-    }
-    if (location.pathname)
-      return location.pathname.slice(0, location.pathname.indexOf('/', 10));
-  };
-
-  const handleClosure = () => {
-    navigate(figurePath());
-  };
-
-  const { data: movie, error, isLoading } = useGetMovieDetailsQuery(id);
+  const { data: movie, error, isLoading } = useGetMovieDetailsQuery(movieId);
 
   const user = useSelector(selectAuthStatus);
 

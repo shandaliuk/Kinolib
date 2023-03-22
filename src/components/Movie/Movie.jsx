@@ -1,13 +1,23 @@
-import { useLocation } from 'react-router-dom';
+import { useState } from 'react';
 import { getGenres, getYear, normalizeTitle } from 'services/serviceApi';
-import { MovieLink, Image, MovieTitle, InfoWrapper } from './Movie.styled';
+import MovieModal from 'components/MovieModal/MovieModal';
 import unavaliablePoster from 'images/unavailable-poster.jpg';
+import { MovieLink, Image, MovieTitle, InfoWrapper } from './Movie.styled';
 
 export const Movie = ({ id, title, poster, date, genreIds }) => {
-  const location = useLocation();
+  const [isModalOpened, setModalOpening] = useState(false);
+
+  const handleClick = event => {
+    event.preventDefault();
+    setModalOpening(state => !state);
+  };
+
+  const handleClosure = () => {
+    setModalOpening(false);
+  };
 
   return (
-    <MovieLink to={`${id}`} state={{ from: location }}>
+    <MovieLink to={`#`} onClick={handleClick}>
       <Image
         src={
           poster
@@ -21,6 +31,9 @@ export const Movie = ({ id, title, poster, date, genreIds }) => {
         <ul>{getGenres(genreIds)} </ul>
         <p>&nbsp;| {getYear(date)}</p>
       </InfoWrapper>
+      {isModalOpened && (
+        <MovieModal movieId={id} handleClosure={() => handleClick} />
+      )}
     </MovieLink>
   );
 };
