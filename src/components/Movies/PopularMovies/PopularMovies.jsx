@@ -23,7 +23,9 @@ export const PopularMovies = () => {
     data: movies,
     error,
     isLoading,
-  } = useGetTrendingMoviesQuery(searchParams.get('page'));
+  } = useGetTrendingMoviesQuery(
+    searchParams.get('page') ? searchParams.get('page') : 1
+  );
 
   const handleClick = event => {
     setSearchParams({ page: event.nextSelectedPage + 1 });
