@@ -5,12 +5,13 @@ import { toast } from 'react-toastify';
 import { selectAuthStatus } from 'redux/auth/selectors';
 import { useGetUserMoviesQuery } from 'services/userMoviesApi/userMoviesApi';
 import { Container } from 'components/Container/Container';
+import { AbsentMovies } from 'components/AbsentMovies/AbsentMovies';
 import { Movie } from 'components/Movie/Movie';
 import { WatchedSection } from './Watched.styled';
 import {
   HiddenTitle,
   MoviesList,
-} from 'components/Movies/PopularMovies/PopularMovies.styled';
+} from 'components/TrendingMovies/TrendingMovies.styled';
 
 const Watched = () => {
   const [skip, setSkip] = useState(true);
@@ -37,24 +38,27 @@ const Watched = () => {
           {!skip && !isLoading && !error && (
             <>
               <HiddenTitle>Trending movies</HiddenTitle>
-              <MoviesList>
-                {data.watched.map(movie => {
-                  return (
-                    <li key={movie.id}>
-                      <Movie
-                        id={movie.id}
-                        title={movie.title}
-                        poster={movie.poster}
-                        date={movie.date}
-                        genreIds={movie.genres.map(genre => genre.id)}
-                      />
-                    </li>
-                  );
-                })}
-              </MoviesList>
+              {data.watched.length < 1 ? (
+                <AbsentMovies location={'watched'} />
+              ) : (
+                <MoviesList>
+                  {data.watched.map(movie => {
+                    return (
+                      <li key={movie.id}>
+                        <Movie
+                          id={movie.id}
+                          title={movie.title}
+                          poster={movie.poster}
+                          date={movie.date}
+                          genreIds={movie.genres.map(genre => genre.id)}
+                        />
+                      </li>
+                    );
+                  })}
+                </MoviesList>
+              )}
             </>
           )}
-          ;
         </Container>
       </WatchedSection>
       <Outlet />

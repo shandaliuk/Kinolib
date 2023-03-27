@@ -54,17 +54,3 @@ export const SearchIcon = styled.svg`
   width: 12px;
   height: 12px;
 `;
-
-export const ErrorText = styled.p`
-  display: block;
-  margin-top: 16px;
-  font-size: 14px;
-  font-weight: 200;
-  line-height: 1.14;
-  color: ${props => props.theme.colors.error};
-
-  @media screen and (min-width: 768px) {
-    margin-top: 20px;
-    text-align: center;
-  }
-`;

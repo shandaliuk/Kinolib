@@ -87,12 +87,13 @@ const MovieModal = ({ movieId, handleClosure }) => {
         break;
       case 'inWatched':
         try {
-          if (
-            !userMovies.watched.find(userMovie => userMovie.id === movie.id)
-          ) {
+          const currentMovie = userMovies.watched.find(
+            userMovie => userMovie.id === movie.id
+          );
+          if (!currentMovie) {
             throw new Error();
           }
-          await deleteMovie({ id: user, movieToSave, location: 'watched' });
+          await deleteMovie({ id: user, currentMovie, location: 'watched' });
           toast.success('Removed from your watched movies');
         } catch (error) {
           toast.error("Can't remove from your watched movies");
@@ -100,10 +101,13 @@ const MovieModal = ({ movieId, handleClosure }) => {
         break;
       case 'inQueue':
         try {
-          if (!userMovies.queue.find(userMovie => userMovie.id === movie.id)) {
+          const currentMovie = userMovies.queue.find(
+            userMovie => userMovie.id === movie.id
+          );
+          if (!currentMovie) {
             throw new Error();
           }
-          await deleteMovie({ id: user, movieToSave, location: 'queue' });
+          await deleteMovie({ id: user, currentMovie, location: 'queue' });
           toast.success('Removed from your queue');
         } catch (error) {
           toast.error("Can't remove from your queue");

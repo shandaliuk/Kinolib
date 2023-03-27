@@ -36,12 +36,12 @@ export const userMoviesApi = createApi({
       invalidatesTags: ['UserMovies'],
     }),
     deleteMovie: builder.mutation({
-      queryFn: async ({ location, movieToSave, id }) => {
+      queryFn: async ({ location, currentMovie, id }) => {
         try {
           const doc = createUserDoc(id);
           await updateDoc(
             doc,
-            { [location]: arrayRemove(movieToSave) },
+            { [location]: arrayRemove(currentMovie) },
             { merge: true }
           );
           return { data: 'ok' };

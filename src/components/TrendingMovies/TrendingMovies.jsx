@@ -2,12 +2,17 @@ import { useEffect } from 'react';
 import { Outlet, useSearchParams } from 'react-router-dom';
 import { motion, useIsPresent } from 'framer-motion';
 import { useGetTrendingMoviesQuery } from 'services/moviesApi/moviesApi';
+import { Hero } from 'components/Hero/Hero';
 import { Container } from 'components/Container/Container';
 import { Movie } from 'components/Movie/Movie';
 import { Pagination } from 'components/Pagination/Pagination';
-import { MoviesSection, HiddenTitle, MoviesList } from './PopularMovies.styled';
+import {
+  MoviesSection,
+  HiddenTitle,
+  MoviesList,
+} from './TrendingMovies.styled';
 
-export const PopularMovies = () => {
+export const TrendingMovies = () => {
   const [searchParams, setSearchParams] = useSearchParams();
 
   useEffect(() => {
@@ -29,15 +34,17 @@ export const PopularMovies = () => {
 
   const handleClick = event => {
     setSearchParams({ page: event.nextSelectedPage + 1 });
+    window.scroll(0, 0);
   };
 
   return (
     <>
-      <MoviesSection>
-        <Container>
-          {error && <p>Something went wrong :(</p>}
-          {!isLoading && !error && (
-            <>
+      {error && <p>Something went wrong :(</p>}
+      {!isLoading && !error && (
+        <>
+          <Hero movie={movies.results[0]} />
+          <MoviesSection>
+            <Container>
               <HiddenTitle>Trending movies</HiddenTitle>
               <MoviesList>
                 {movies.results.map(result => {
@@ -53,16 +60,15 @@ export const PopularMovies = () => {
                     </li>
                   );
                 })}
-                ;
               </MoviesList>
               <Pagination
                 onClick={handleClick}
                 page={Number(searchParams.get('page'))}
               />
-            </>
-          )}
-        </Container>
-      </MoviesSection>
+            </Container>
+          </MoviesSection>
+        </>
+      )}
       <Outlet />
       <motion.div
         initial={{ scaleX: 1 }}

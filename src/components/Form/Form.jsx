@@ -1,19 +1,13 @@
 import { Formik, Form } from 'formik';
-import { useNavigate } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 import sprite from 'images/sprite.svg';
-import {
-  FormWrapper,
-  Input,
-  SubmitButton,
-  SearchIcon,
-  ErrorText,
-} from './Form.styled';
+import { FormWrapper, Input, SubmitButton, SearchIcon } from './Form.styled';
 
 export const HeaderForm = () => {
-  const navigate = useNavigate();
+  const [searchParams, setSearchParams] = useSearchParams();
 
   const handleSubmit = (values, actions) => {
-    navigate(`/movies/${values.query}`);
+    setSearchParams({ query: values.query, page: 1 });
     actions.resetForm();
   };
 
@@ -34,12 +28,6 @@ export const HeaderForm = () => {
               </SearchIcon>
             </SubmitButton>
           </FormWrapper>
-          {false && (
-            <ErrorText>
-              Search result not successful. Enter the correct movie name and try
-              again.
-            </ErrorText>
-          )}
         </Form>
       </Formik>
     </>

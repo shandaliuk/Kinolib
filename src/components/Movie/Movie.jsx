@@ -12,10 +12,6 @@ export const Movie = ({ id, title, poster, date, genreIds }) => {
     setModalOpening(state => !state);
   };
 
-  const handleClosure = () => {
-    setModalOpening(false);
-  };
-
   return (
     <MovieLink to={`#`} onClick={handleClick}>
       <Image

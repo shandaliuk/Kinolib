@@ -1,19 +1,20 @@
 import { useEffect } from 'react';
 import { Outlet } from 'react-router-dom';
-import { useParams, useSearchParams } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 import { useIsPresent } from 'framer-motion';
 import { motion } from 'framer-motion';
 import { useGetMovieQuery } from 'services/moviesApi/moviesApi';
 import { Container } from 'components/Container/Container';
+import { AbsentMovies } from 'components/AbsentMovies/AbsentMovies';
 import { Movie } from 'components/Movie/Movie';
 import { Pagination } from 'components/Pagination/Pagination';
 import {
   MoviesSection,
   HiddenTitle,
   MoviesList,
-} from '../PopularMovies/PopularMovies.styled';
+} from '../TrendingMovies/TrendingMovies.styled';
 
-const SearchedMovies = () => {
+const SearchedMovies = ({ query }) => {
   const [searchParams, setSearchParams] = useSearchParams();
 
   useEffect(() => {
@@ -25,8 +26,6 @@ const SearchedMovies = () => {
 
   const isPresent = useIsPresent();
 
-  const { query } = useParams();
-
   const {
     data: movies,
     isLoading,
@@ -37,18 +36,21 @@ const SearchedMovies = () => {
   });
 
   const handleClick = event => {
-    setSearchParams({ page: event.nextSelectedPage + 1 });
+    setSearchParams({ query, page: event.nextSelectedPage + 1 });
+    window.scroll(0, 0);
   };
 
   return (
     <>
-      <main>
-        <MoviesSection>
-          <Container>
-            {error && <p>Something went wrong :(</p>}
-            {!isLoading && !error && (
-              <>
-                <HiddenTitle>Trending movies</HiddenTitle>
+      <MoviesSection>
+        <Container>
+          {error && <p>Something went wrong :(</p>}
+          {!isLoading && !error && (
+            <>
+              <HiddenTitle>Trending movies</HiddenTitle>
+              {movies.results.length < 1 ? (
+                <AbsentMovies location={'searchedMovies'} query={query} />
+              ) : (
                 <MoviesList>
                   {movies.results.map(result => {
                     return (
@@ -64,27 +66,29 @@ const SearchedMovies = () => {
                     );
                   })}
                 </MoviesList>
+              )}
+              {movies.total_pages > 1 && (
                 <Pagination
                   onClick={handleClick}
                   page={Number(searchParams.get('page'))}
                   pageCount={movies.total_pages}
                 />
-              </>
-            )}
-          </Container>
-        </MoviesSection>
-        <Outlet />
-        <motion.div
-          initial={{ scaleX: 1 }}
-          animate={{
-            scaleX: 0,
-            transition: { duration: 0.5, ease: 'circOut' },
-          }}
-          exit={{ scaleX: 1, transition: { duration: 0.5, ease: 'circIn' } }}
-          style={{ originX: isPresent ? 0 : 1 }}
-          className="privacy-screen"
-        />
-      </main>
+              )}
+            </>
+          )}
+        </Container>
+      </MoviesSection>
+      <Outlet />
+      <motion.div
+        initial={{ scaleX: 1 }}
+        animate={{
+          scaleX: 0,
+          transition: { duration: 0.5, ease: 'circOut' },
+        }}
+        exit={{ scaleX: 1, transition: { duration: 0.5, ease: 'circIn' } }}
+        style={{ originX: isPresent ? 0 : 1 }}
+        className="privacy-screen"
+      />
     </>
   );
 };

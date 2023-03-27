@@ -11,7 +11,7 @@ export const HeaderNavigation = () => {
       <Logo />
       <List>
         <li>
-          <NavigationLink to="/movies/trending">Trending</NavigationLink>
+          <NavigationLink to="/movies">Trending</NavigationLink>
         </li>
         {isLoggedIn && (
           <li>

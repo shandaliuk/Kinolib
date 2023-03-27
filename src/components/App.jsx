@@ -6,10 +6,7 @@ import SharedLayout from './SharedLayout/SharedLayout';
 import Home from 'pages/Home/Home';
 import Login from 'pages/Login/Login';
 import Register from 'pages/Register/Register';
-import Movies from './Movies/Movies';
-import MoviesHome from './MoviesHome/MoviesHome';
-import TrendingMovies from 'pages/TrendingMovies/TrendingMovies';
-import SearchedMovies from './Movies/SearchedMovies/SearchedMovies';
+import { Movies } from '../pages/Movies/Movies';
 import Library from 'pages/Library/Library';
 import LibraryIndex from './LibraryIndex/LibraryIndex';
 import Watched from 'pages/Watched/Watched';
@@ -36,11 +33,7 @@ export const App = () => {
               <RestrictedRoute component={<Register />} redirectTo="/library" />
             }
           />
-          <Route path="movies" element={<Movies />}>
-            <Route index element={<MoviesHome />} />
-            <Route path="trending" element={<TrendingMovies />} />
-            <Route path=":query" element={<SearchedMovies />} />
-          </Route>
+          <Route path="movies" element={<Movies />} />
           <Route
             path="library"
             element={
