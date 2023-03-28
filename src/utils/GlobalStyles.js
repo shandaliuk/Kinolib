@@ -57,4 +57,13 @@ body {
   background-color: ${props => props.theme.colors.primary};
   z-index: 2;
 }
+
+.progress {
+  position: fixed;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: var(--accent);
+  bottom: 100px;
+}
 `;

@@ -106,7 +106,7 @@ export const UserScore = styled.span`
   display: inline-block;
   width: 36px;
   height: 16px;
-  border-radius: 5px;
+  border-radius: 2px;
   background-color: ${props => props.theme.colors.accent};
   color: #030a02;
   text-align: center;
@@ -146,7 +146,6 @@ export const WatchedModalButton = styled.button`
   color: ${props => props.theme.colors.primary};
   background-color: transparent;
   border: 1px solid ${props => props.theme.colors.primary};
-  border-radius: 5px;
   outline: none;
   transition: background ${props => props.theme.transitions.main},
     border ${props => props.theme.transitions.main},
@@ -184,7 +183,6 @@ export const QueueModalButton = styled.button`
   color: ${props => props.theme.colors.primary};
   background-color: transparent;
   border: 1px solid ${props => props.theme.colors.primary};
-  border-radius: 5px;
   outline: none;
   transition: background ${props => props.theme.transitions.main},
     border ${props => props.theme.transitions.main},

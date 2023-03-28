@@ -3,18 +3,32 @@ import styled from 'styled-components';
 
 export const MovieLink = styled(Link)`
   display: block;
+  position: relative;
   text-align: center;
   padding-bottom: 12px;
   border-bottom: 1px solid transparent;
+  background-color: rgba(3, 10, 2, 0.5);
+  box-shadow: ${props => props.theme.shadows.box};
+  border-bottom: 1px solid ${props => props.theme.colors.primary};
   transition: background-color ${props => props.theme.transitions.main},
     border ${props => props.theme.transitions.main},
     box-shadow ${props => props.theme.transitions.main};
 
   &:hover,
   &:focus {
-    background-color: rgba(3, 10, 2, 0.5);
-    box-shadow: ${props => props.theme.shadows.box};
-    border-bottom: 1px solid ${props => props.theme.colors.primary};
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      background-color: rgba(3, 10, 2, 0.5);
+      opacity: 1;
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+    /* box-shadow: ${props => props.theme.shadows.box};
+    border-bottom: 1px solid ${props => props.theme.colors.primary}; */
   }
 `;
 

@@ -1,6 +1,14 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { Outlet, useSearchParams } from 'react-router-dom';
-import { motion, useIsPresent } from 'framer-motion';
+import {
+  motion,
+  useIsPresent,
+  useScroll,
+  useSpring,
+  useTransform,
+  MotionValue,
+} from 'framer-motion';
+import { useParallax } from 'utils/Motion';
 import { useGetTrendingMoviesQuery } from 'services/moviesApi/moviesApi';
 import { Hero } from 'components/Hero/Hero';
 import { Container } from 'components/Container/Container';
@@ -8,7 +16,7 @@ import { Movie } from 'components/Movie/Movie';
 import { Pagination } from 'components/Pagination/Pagination';
 import {
   MoviesSection,
-  HiddenTitle,
+  TrendingTitle,
   MoviesList,
 } from './TrendingMovies.styled';
 
@@ -37,15 +45,24 @@ export const TrendingMovies = () => {
     window.scroll(0, 0);
   };
 
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001,
+  });
+
+  const ref = useRef(null);
+
   return (
     <>
       {error && <p>Something went wrong :(</p>}
       {!isLoading && !error && (
         <>
-          <Hero movie={movies.results[0]} />
+          <Hero movie={movies.results[0]} reference={ref} />
           <MoviesSection>
             <Container>
-              <HiddenTitle>Trending movies</HiddenTitle>
+              <TrendingTitle ref={ref}>Trending movies</TrendingTitle>
               <MoviesList>
                 {movies.results.map(result => {
                   return (
@@ -70,6 +87,7 @@ export const TrendingMovies = () => {
         </>
       )}
       <Outlet />
+      <motion.div className="progress" style={{ scaleX }} />
       <motion.div
         initial={{ scaleX: 1 }}
         animate={{

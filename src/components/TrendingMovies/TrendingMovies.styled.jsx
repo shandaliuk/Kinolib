@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import font from 'images/font.jpg';
 
 export const MoviesSection = styled.section`
-  padding-top: 230px;
+  padding-top: 130px;
   padding-bottom: 70px;
   background-image: url(${font});
   background-size: auto;
@@ -12,9 +12,16 @@ export const MoviesSection = styled.section`
 
   @media screen and (min-width: 768px) {
     background-size: contain;
-    padding-top: 217px;
+    padding-top: 117px;
     padding-bottom: 90px;
   }
+`;
+
+export const TrendingTitle = styled.h1`
+  font-size: 50px;
+  font-weight: 100;
+  text-transform: uppercase;
+  margin-bottom: 50px;
 `;
 
 export const HiddenTitle = styled.h1`
