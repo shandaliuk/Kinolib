@@ -1,7 +1,5 @@
-import { useState, useRef } from 'react';
-import { motion, useScroll } from 'framer-motion';
+import { useState } from 'react';
 import { getGenres, getYear } from 'services/serviceApi';
-import { useParallax } from 'utils/Motion';
 import { Container } from 'components/Container/Container';
 import MovieModal from 'components/MovieModal/MovieModal';
 import {
@@ -17,14 +15,10 @@ import {
   ButtonMore,
 } from './Hero.styled';
 
-export const Hero = ({ movie, ref }) => {
+export const Hero = ({ movie }) => {
   const [isModalOpened, setModalOpening] = useState(false);
 
   const handleClick = () => setModalOpening(state => !state);
-
-  const { scrollYProgress } = useScroll({ target: ref });
-  console.log(useScroll({ target: ref }));
-  const y = useParallax(scrollYProgress, 300);
 
   return (
     <HeroSection

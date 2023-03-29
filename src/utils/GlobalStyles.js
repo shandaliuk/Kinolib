@@ -58,12 +58,12 @@ body {
   z-index: 2;
 }
 
-.progress {
+.progress-bar {
   position: fixed;
   left: 0;
   right: 0;
-  height: 5px;
-  background: var(--accent);
-  bottom: 100px;
+  height: 2px;
+  background: ${props => props.theme.colors.primary};
+  z-index: 3;
 }
 `;

@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Outlet } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import { motion, useScroll } from 'framer-motion';
 import { selectAuthStatus } from 'redux/auth/selectors';
 import { useGetUserMoviesQuery } from 'services/userMoviesApi/userMoviesApi';
 import { Container } from 'components/Container/Container';
@@ -20,6 +21,8 @@ const Queue = () => {
 
   const { data, error, isLoading } = useGetUserMoviesQuery(user, { skip });
 
+  const { scrollYProgress } = useScroll();
+
   if (user && skip) {
     setSkip(false);
     return;
@@ -32,6 +35,12 @@ const Queue = () => {
 
   return (
     <main>
+      {!skip && !isLoading && !error && data.queue.length > 1 && (
+        <motion.div
+          className="progress-bar"
+          style={{ scaleX: scrollYProgress }}
+        />
+      )}
       <QueueSection>
         <Container>
           {error && <p>Something went wrong :(</p>}

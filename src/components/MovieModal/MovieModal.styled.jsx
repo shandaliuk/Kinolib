@@ -19,9 +19,9 @@ export const ModalContent = styled(motion.div)`
   overflow: hidden;
 
   @media screen and (min-width: 768px) {
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    top: 25%;
+    left: 25%;
+    /* transform: translate(-50%, -50%); */
     width: 704px;
     height: 552px;
     padding: 40px 66px 40px 36px;
