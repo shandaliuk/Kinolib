@@ -46,7 +46,7 @@ const Queue = () => {
           {error && <p>Something went wrong :(</p>}
           {!skip && !isLoading && !error && (
             <>
-              <HiddenTitle>Trending movies</HiddenTitle>
+              <HiddenTitle>Movies in queue</HiddenTitle>
               {data.queue.length < 1 ? (
                 <AbsentMovies location={'queue'} />
               ) : (

@@ -1,5 +1,5 @@
 import { useState, forwardRef } from 'react';
-import { motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import { getGenres, getYear, normalizeTitle } from 'services/serviceApi';
 import MovieModal from 'components/MovieModal/MovieModal';
 import unavaliablePoster from 'images/unavailable-poster.jpg';
@@ -28,9 +28,23 @@ const SimpleMovie = forwardRef(({ id, title, poster, date, genreIds }, ref) => {
         <ul>{getGenres(genreIds)} </ul>
         <p>&nbsp;| {getYear(date)}</p>
       </InfoWrapper>
-      {isModalOpened && (
-        <MovieModal movieId={id} handleClosure={() => handleClick} />
-      )}
+      <AnimatePresence>
+        {isModalOpened && (
+          <MovieModal
+            movieId={id}
+            handleClosure={() => handleClick}
+            key="modal"
+            initial={{
+              top: '-100%',
+            }}
+            animate={{ top: '50%' }}
+            exit={{
+              top: '-100%',
+            }}
+            transition={{ duration: 0.5 }}
+          />
+        )}
+      </AnimatePresence>
     </MovieLink>
   );
 });

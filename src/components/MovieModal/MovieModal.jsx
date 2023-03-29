@@ -1,5 +1,5 @@
 import Modal from 'react-modal';
-import { useState } from 'react';
+import { useState, forwardRef } from 'react';
 import { useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 import { selectAuthStatus } from 'redux/auth/selectors';
@@ -28,8 +28,9 @@ import {
   CloseButton,
   CloseIcon,
 } from './MovieModal.styled';
+import { motion } from 'framer-motion';
 
-const MovieModal = ({ movieId, handleClosure }) => {
+const SimpleMovieModal = forwardRef(({ movieId, handleClosure }, ref) => {
   const [skip, setSkip] = useState(true);
 
   const { data: movie, error, isLoading } = useGetMovieDetailsQuery(movieId);
@@ -130,7 +131,9 @@ const MovieModal = ({ movieId, handleClosure }) => {
           className="_"
           overlayClassName="_"
           contentElement={(props, children) => (
-            <ModalContent {...props}>{children}</ModalContent>
+            <ModalContent {...props} ref={ref}>
+              {children}
+            </ModalContent>
           )}
           overlayElement={(props, contentElement) => (
             <Overlay {...props}>{contentElement}</Overlay>
@@ -229,6 +232,8 @@ const MovieModal = ({ movieId, handleClosure }) => {
       )}
     </>
   );
-};
+});
+
+const MovieModal = motion(SimpleMovieModal);
 
 export default MovieModal;

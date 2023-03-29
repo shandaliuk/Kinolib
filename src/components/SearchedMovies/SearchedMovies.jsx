@@ -9,10 +9,10 @@ import { AbsentMovies } from 'components/AbsentMovies/AbsentMovies';
 import { Movie } from 'components/Movie/Movie';
 import { Pagination } from 'components/Pagination/Pagination';
 import {
-  MoviesSection,
   HiddenTitle,
   MoviesList,
 } from '../TrendingMovies/TrendingMovies.styled';
+import { SearchedSection } from './SearchedMovies.styled';
 
 const SearchedMovies = ({ query }) => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -42,12 +42,12 @@ const SearchedMovies = ({ query }) => {
 
   return (
     <>
-      <MoviesSection>
+      <SearchedSection>
         <Container>
           {error && <p>Something went wrong :(</p>}
           {!isLoading && !error && (
             <>
-              <HiddenTitle>Trending movies</HiddenTitle>
+              <HiddenTitle>Movies by name {query}</HiddenTitle>
               {movies.results.length < 1 ? (
                 <AbsentMovies location={'searchedMovies'} query={query} />
               ) : (
@@ -81,7 +81,7 @@ const SearchedMovies = ({ query }) => {
             </>
           )}
         </Container>
-      </MoviesSection>
+      </SearchedSection>
       <Outlet />
       <motion.div
         initial={{ scaleX: 1 }}

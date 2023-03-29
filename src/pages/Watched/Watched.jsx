@@ -46,7 +46,7 @@ const Watched = () => {
           {error && <p>Something went wrong :(</p>}
           {!skip && !isLoading && !error && (
             <>
-              <HiddenTitle>Trending movies</HiddenTitle>
+              <HiddenTitle>Watched movies</HiddenTitle>
               {data.watched.length < 1 ? (
                 <AbsentMovies location={'watched'} />
               ) : (

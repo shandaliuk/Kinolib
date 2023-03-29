@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { AnimatePresence } from 'framer-motion';
 import { getGenres, getYear } from 'services/serviceApi';
 import { Container } from 'components/Container/Container';
 import MovieModal from 'components/MovieModal/MovieModal';
@@ -51,9 +52,23 @@ export const Hero = ({ movie }) => {
           </ButtonMore>
         </InfoWrapper>
       </Container>
-      {isModalOpened && (
-        <MovieModal movieId={movie.id} handleClosure={handleClick} />
-      )}
+      <AnimatePresence>
+        {isModalOpened && (
+          <MovieModal
+            movieId={movie.id}
+            handleClosure={handleClick}
+            key="modal"
+            initial={{
+              top: '-100%',
+            }}
+            animate={{ top: '50%' }}
+            exit={{
+              top: '-100%',
+            }}
+            transition={{ duration: 0.5 }}
+          />
+        )}
+      </AnimatePresence>
     </HeroSection>
   );
 };
