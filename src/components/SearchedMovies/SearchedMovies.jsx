@@ -61,6 +61,10 @@ const SearchedMovies = ({ query }) => {
                           poster={result.poster_path}
                           date={result.release_date}
                           genreIds={result.genre_ids}
+                          initial={{ opacity: 0 }}
+                          whileInView={{ opacity: 1 }}
+                          viewport={{ once: true, amount: 0.2 }}
+                          transition={{ duration: 0.3 }}
                         />
                       </li>
                     );

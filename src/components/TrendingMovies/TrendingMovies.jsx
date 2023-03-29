@@ -6,11 +6,8 @@ import { Hero } from 'components/Hero/Hero';
 import { Container } from 'components/Container/Container';
 import { Movie } from 'components/Movie/Movie';
 import { Pagination } from 'components/Pagination/Pagination';
-import {
-  MoviesSection,
-  TrendingTitle,
-  MoviesList,
-} from './TrendingMovies.styled';
+import { MoviesSection, MoviesList } from './TrendingMovies.styled';
+import { ParallaxText } from 'components/ParallaxText/ParallaxText';
 
 export const TrendingMovies = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -45,19 +42,23 @@ export const TrendingMovies = () => {
           <Hero movie={movies.results[0]} />
           <MoviesSection>
             <Container>
-              <TrendingTitle>Trending movies</TrendingTitle>
+              <ParallaxText baseVelocity={-5}>Trending Movies</ParallaxText>
               <MoviesList>
                 {movies.results.map(result => {
                   return (
-                    <li key={result.id}>
+                    <motion.li key={result.id}>
                       <Movie
                         id={result.id}
                         title={result.title}
                         poster={result.poster_path}
                         date={result.release_date}
                         genreIds={result.genre_ids}
+                        initial={{ opacity: 0 }}
+                        whileInView={{ opacity: 1 }}
+                        viewport={{ once: true, amount: 0.2 }}
+                        transition={{ duration: 0.5 }}
                       />
-                    </li>
+                    </motion.li>
                   );
                 })}
               </MoviesList>

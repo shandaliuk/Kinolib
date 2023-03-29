@@ -60,10 +60,39 @@ body {
 
 .progress-bar {
   position: fixed;
+  top: 0;
   left: 0;
   right: 0;
-  height: 2px;
+  height: 3px;
   background: ${props => props.theme.colors.primary};
+  transform-origin: 0%;
   z-index: 3;
+}
+
+.parallax {
+  width: 100%;
+  overflow: hidden;
+  letter-spacing: -2px;
+  line-height: 0.8;
+  margin: 0;
+  white-space: nowrap;
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.parallax .scroller {
+  font-weight: 100;
+  text-transform: uppercase;
+  font-size: 64px;
+  display: flex;
+  white-space: nowrap;
+  display: flex;
+  flex-wrap: nowrap;
+  margin-bottom: 50px;
+}
+
+.parallax span {
+  display: block;
+  margin-right: 30px;
 }
 `;

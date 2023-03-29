@@ -1,10 +1,11 @@
-import { useState } from 'react';
+import { useState, forwardRef } from 'react';
+import { motion } from 'framer-motion';
 import { getGenres, getYear, normalizeTitle } from 'services/serviceApi';
 import MovieModal from 'components/MovieModal/MovieModal';
 import unavaliablePoster from 'images/unavailable-poster.jpg';
 import { MovieLink, Image, MovieTitle, InfoWrapper } from './Movie.styled';
 
-export const Movie = ({ id, title, poster, date, genreIds }) => {
+const SimpleMovie = forwardRef(({ id, title, poster, date, genreIds }, ref) => {
   const [isModalOpened, setModalOpening] = useState(false);
 
   const handleClick = event => {
@@ -13,7 +14,7 @@ export const Movie = ({ id, title, poster, date, genreIds }) => {
   };
 
   return (
-    <MovieLink to={`#`} onClick={handleClick}>
+    <MovieLink to={`#`} onClick={handleClick} ref={ref}>
       <Image
         src={
           poster
@@ -32,4 +33,6 @@ export const Movie = ({ id, title, poster, date, genreIds }) => {
       )}
     </MovieLink>
   );
-};
+});
+
+export const Movie = motion(SimpleMovie);

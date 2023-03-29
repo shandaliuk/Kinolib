@@ -2,7 +2,6 @@ import Modal from 'react-modal';
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
-import { useIsPresent } from 'framer-motion';
 import { selectAuthStatus } from 'redux/auth/selectors';
 import {
   useAddMovieMutation,
@@ -45,8 +44,6 @@ const MovieModal = ({ movieId, handleClosure }) => {
   const [addMovie] = useAddMovieMutation();
 
   const [deleteMovie] = useDeleteMovieMutation();
-
-  const isPresent = useIsPresent();
 
   if (user && skip) {
     setSkip(false);
@@ -133,21 +130,7 @@ const MovieModal = ({ movieId, handleClosure }) => {
           className="_"
           overlayClassName="_"
           contentElement={(props, children) => (
-            <ModalContent
-              {...props}
-              initial={{ scaleX: 0 }}
-              animate={{
-                scaleX: 1,
-                transition: { duration: 0.5, ease: 'circOut' },
-              }}
-              exit={{
-                scaleX: 0,
-                transition: { duration: 0.5, ease: 'circIn' },
-              }}
-              style={{ originY: isPresent ? 1 : 0 }}
-            >
-              {children}
-            </ModalContent>
+            <ModalContent {...props}>{children}</ModalContent>
           )}
           overlayElement={(props, contentElement) => (
             <Overlay {...props}>{contentElement}</Overlay>
