@@ -12,11 +12,27 @@ export const AuthButton = () => {
   return (
     <>
       {isLoggedIn ? (
-        <LoginButton type="button" onClick={() => logOut()}>
+        <LoginButton
+          type="button"
+          onClick={() => logOut()}
+          whileHover={{
+            scale: 1.2,
+            transition: { duration: 0.2 },
+          }}
+          whileTap={{ scale: 1 }}
+        >
           Log out
         </LoginButton>
       ) : (
-        <LoginButton type="button" onClick={() => navigate('/login')}>
+        <LoginButton
+          type="button"
+          onClick={() => navigate('/login')}
+          whileHover={{
+            scale: 1.2,
+            transition: { duration: 0.2 },
+          }}
+          whileTap={{ scale: 1 }}
+        >
           Log in
         </LoginButton>
       )}

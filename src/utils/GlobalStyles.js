@@ -91,6 +91,7 @@ body {
   margin: 0;
   white-space: nowrap;
   display: flex;
+  align-self: start;
   flex-wrap: nowrap;
 }
 
@@ -102,11 +103,11 @@ body {
   white-space: nowrap;
   display: flex;
   flex-wrap: nowrap;
-  margin-bottom: 50px;
 }
 
 .parallax span {
-  display: block;
+  display: flex;
+  align-items: center;
   margin-right: 30px;
 }
 `;

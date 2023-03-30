@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 import { BsStarFill } from 'react-icons/bs';
 
 export const HeroSection = styled.section`
@@ -59,7 +60,7 @@ export const Overview = styled.p`
   color: ${props => props.theme.colors.accent};
 `;
 
-export const ButtonMore = styled.button`
+export const ButtonMore = styled(motion.button)`
   width: 110px;
   padding: 5px 10px;
   font-family: inherit;

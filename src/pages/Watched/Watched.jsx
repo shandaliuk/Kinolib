@@ -64,6 +64,11 @@ const Watched = () => {
                           whileInView={{ opacity: 1 }}
                           viewport={{ once: true, amount: 0.2 }}
                           transition={{ duration: 0.5 }}
+                          whileHover={{
+                            scale: 1.08,
+                            transition: { duration: 0.2 },
+                          }}
+                          whileTap={{ scale: 1 }}
                         />
                       </li>
                     );

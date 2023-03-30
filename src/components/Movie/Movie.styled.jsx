@@ -13,29 +13,6 @@ export const MovieLink = styled(Link)`
   transition: background-color ${props => props.theme.transitions.main},
     border ${props => props.theme.transitions.main},
     box-shadow ${props => props.theme.transitions.main};
-
-  &:hover,
-  &:focus {
-    z-index: 3;
-    &::after {
-      padding-top: 50%;
-      content: 'Learn more';
-      color: ${props => props.theme.colors.primary};
-      font-size: 40px;
-      font-weight: 200;
-      text-transform: uppercase;
-      position: absolute;
-      top: 0;
-      right: 0;
-      background-color: rgba(3, 10, 2, 0.5);
-      opacity: 1;
-      display: block;
-      width: 100%;
-      height: 100%;
-    }
-    /* box-shadow: ${props => props.theme.shadows.box};
-    border-bottom: 1px solid ${props => props.theme.colors.primary}; */
-  }
 `;
 
 export const Image = styled.img`

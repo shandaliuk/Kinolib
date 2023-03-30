@@ -51,7 +51,16 @@ const Login = () => {
                   placeholder="Password"
                   name="password"
                 />
-                <AuthSubmitButton type="submit">Log in</AuthSubmitButton>
+                <AuthSubmitButton
+                  type="submit"
+                  whileHover={{
+                    scale: 1.1,
+                    transition: { duration: 0.2 },
+                  }}
+                  whileTap={{ scale: 1 }}
+                >
+                  Log in
+                </AuthSubmitButton>
               </AuthForm>
             </Formik>
             <AuthLink to="/register">Don't have an account?</AuthLink>

@@ -134,7 +134,7 @@ export const ModalButtonList = styled.ul`
   column-gap: 20px;
 `;
 
-export const WatchedModalButton = styled.button`
+export const WatchedModalButton = styled(motion.button)`
   width: 110px;
   padding: 5px 10px;
   font-family: inherit;
@@ -171,7 +171,7 @@ export const WatchedModalButton = styled.button`
   }
 `;
 
-export const QueueModalButton = styled.button`
+export const QueueModalButton = styled(motion.button)`
   width: 110px;
   padding: 13px 0px;
   font-family: inherit;

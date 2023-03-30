@@ -45,7 +45,7 @@ export const TrendingMovies = () => {
           <Hero movie={movies.results[0]} />
           <MoviesSection>
             <Container>
-              <ParallaxText baseVelocity={-5}>Trending Movies</ParallaxText>
+              <ParallaxText baseVelocity={5}>Trending Movies</ParallaxText>
               <MoviesList>
                 {movies.results.map(result => {
                   return (

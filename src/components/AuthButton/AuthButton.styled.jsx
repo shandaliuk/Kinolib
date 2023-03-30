@@ -1,6 +1,7 @@
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 
-export const LoginButton = styled.button`
+export const LoginButton = styled(motion.button)`
   padding: 5px;
   font-family: inherit;
   font-weight: 200;

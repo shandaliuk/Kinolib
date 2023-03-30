@@ -185,6 +185,11 @@ const SimpleMovieModal = forwardRef(({ movieId, handleClosure }, ref) => {
                     type="button"
                     name="inWatched"
                     onClick={handleClick}
+                    whileHover={{
+                      scale: 1.1,
+                      transition: { duration: 0.2 },
+                    }}
+                    whileTap={{ scale: 1 }}
                   >
                     In watched
                   </WatchedModalButton>
@@ -193,6 +198,11 @@ const SimpleMovieModal = forwardRef(({ movieId, handleClosure }, ref) => {
                     type="button"
                     name="watched"
                     onClick={handleClick}
+                    whileHover={{
+                      scale: 1.1,
+                      transition: { duration: 0.2 },
+                    }}
+                    whileTap={{ scale: 1 }}
                   >
                     Add to watched
                   </WatchedModalButton>
@@ -208,6 +218,11 @@ const SimpleMovieModal = forwardRef(({ movieId, handleClosure }, ref) => {
                     type="button"
                     name="inQueue"
                     onClick={handleClick}
+                    whileHover={{
+                      scale: 1.1,
+                      transition: { duration: 0.2 },
+                    }}
+                    whileTap={{ scale: 1 }}
                   >
                     In queue
                   </QueueModalButton>
@@ -216,6 +231,11 @@ const SimpleMovieModal = forwardRef(({ movieId, handleClosure }, ref) => {
                     type="button"
                     name="queue"
                     onClick={handleClick}
+                    whileHover={{
+                      scale: 1.1,
+                      transition: { duration: 0.2 },
+                    }}
+                    whileTap={{ scale: 1 }}
                   >
                     Add to queue
                   </QueueModalButton>

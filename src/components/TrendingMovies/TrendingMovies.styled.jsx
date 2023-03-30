@@ -40,6 +40,7 @@ export const MoviesList = styled.ul`
   flex-direction: column;
   justify-content: center;
   row-gap: 20px;
+  margin-top: 50px;
 
   @media screen and (min-width: 768px) {
     flex-direction: row;

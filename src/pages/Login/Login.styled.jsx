@@ -1,7 +1,8 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import { Field, Form } from 'formik';
 import font from 'images/font.jpg';
-import { Link } from 'react-router-dom';
 
 export const AuthSection = styled.section`
   min-height: 100vh;
@@ -57,7 +58,7 @@ export const AuthInput = styled(Field)`
   }
 `;
 
-export const AuthSubmitButton = styled.button`
+export const AuthSubmitButton = styled(motion.button)`
   padding: 5px;
   width: 100px;
   font-family: inherit;
@@ -91,4 +92,10 @@ export const AuthLink = styled(Link)`
   margin-top: 20px;
   color: ${props => props.theme.colors.primary};
   font-weight: 200;
+  transition: color ${props => props.theme.transitions.main};
+
+  &:hover,
+  &:focus {
+    color: ${props => props.theme.colors.accent};
+  }
 `;

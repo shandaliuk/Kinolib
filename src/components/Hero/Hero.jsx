@@ -47,7 +47,15 @@ export const Hero = ({ movie }) => {
             </p>
           </MovieData>
           <Overview>{movie.overview}</Overview>
-          <ButtonMore type="button" onClick={handleClick}>
+          <ButtonMore
+            type="button"
+            onClick={handleClick}
+            whileHover={{
+              scale: 1.2,
+              transition: { duration: 0.2 },
+            }}
+            whileTap={{ scale: 1 }}
+          >
             More Info
           </ButtonMore>
         </InfoWrapper>
