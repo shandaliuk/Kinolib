@@ -35,7 +35,7 @@ const Watched = () => {
 
   return (
     <main>
-      {!skip && !isLoading && !error && data.watched.length > 0 && (
+      {!skip && !isLoading && !error && data.watched.length > 3 && (
         <motion.div
           className="progress-bar"
           style={{ scaleX: scrollYProgress }}

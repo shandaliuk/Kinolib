@@ -4,7 +4,7 @@ import font from 'images/font.jpg';
 export const QueueSection = styled.section`
   min-height: 100vh;
   padding-top: 230px;
-  padding-bottom: 40px;
+  padding-bottom: 77px;
   background-image: url(${font});
   background-size: cover;
   background-repeat: no-repeat;

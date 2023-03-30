@@ -48,6 +48,20 @@ body {
     color: ${props => props.theme.colors.primary};
 }
 
+::-webkit-scrollbar {
+  height: 5px;
+  width: 5px;
+  background: ${props => props.theme.colors.secondary};
+}
+
+::-webkit-scrollbar-thumb {
+  background: ${props => props.theme.colors.primary};
+}
+
+::-webkit-scrollbar-corner {
+  background: #fff3;
+}
+
 .privacy-screen {
   position: absolute;
   top: 0;
