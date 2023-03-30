@@ -1,5 +1,6 @@
 import { Outlet } from 'react-router-dom';
 import { Footer } from 'components/Footer/Footer';
+import { ScrollTop } from 'components/ScrollTop/ScrollTop';
 import { StyledToastContainer } from './SharedLayout.styled';
 
 const SharedLayout = () => {
@@ -18,6 +19,7 @@ const SharedLayout = () => {
         pauseOnHover
         theme="dark"
       />
+      <ScrollTop />
       <Footer />
     </>
   );

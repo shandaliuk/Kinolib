@@ -31,7 +31,10 @@ export const TrendingMovies = () => {
 
   const handleClick = event => {
     setSearchParams({ page: event.nextSelectedPage + 1 });
-    window.scroll(0, 0);
+    document.documentElement.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
   };
 
   return (
@@ -57,6 +60,11 @@ export const TrendingMovies = () => {
                         whileInView={{ opacity: 1 }}
                         viewport={{ once: true, amount: 0.2 }}
                         transition={{ duration: 0.5 }}
+                        whileHover={{
+                          scale: 1.08,
+                          transition: { duration: 0.2 },
+                        }}
+                        whileTap={{ scale: 1 }}
                       />
                     </motion.li>
                   );

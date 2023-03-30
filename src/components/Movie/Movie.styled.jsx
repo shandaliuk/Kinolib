@@ -16,8 +16,14 @@ export const MovieLink = styled(Link)`
 
   &:hover,
   &:focus {
+    z-index: 3;
     &::after {
-      content: '';
+      padding-top: 50%;
+      content: 'Learn more';
+      color: ${props => props.theme.colors.primary};
+      font-size: 40px;
+      font-weight: 200;
+      text-transform: uppercase;
       position: absolute;
       top: 0;
       right: 0;

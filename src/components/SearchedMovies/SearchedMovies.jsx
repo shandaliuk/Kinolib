@@ -37,7 +37,10 @@ const SearchedMovies = ({ query }) => {
 
   const handleClick = event => {
     setSearchParams({ query, page: event.nextSelectedPage + 1 });
-    window.scroll(0, 0);
+    document.documentElement.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
   };
 
   return (
