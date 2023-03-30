@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkmy_app=self.webpackChunkmy_app||[]).push([[917],{5917:function(n,e,t){t.r(e),t.d(e,{default:function(){return f}});var r,u=t(168),a=t(6444).ZP.h2(r||(r=(0,u.Z)(["\n  font-size: 30px;\n  font-weight: 100;\n  text-transform: uppercase;\n  text-align: center;\n"]))),c=t(184),f=function(){return(0,c.jsx)("main",{children:(0,c.jsx)(a,{children:"Page not found"})})}}}]);
-//# sourceMappingURL=917.ceddb152.chunk.js.map
