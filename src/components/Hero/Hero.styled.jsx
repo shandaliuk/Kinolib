@@ -20,16 +20,36 @@ export const InfoWrapper = styled.div`
 
 export const MovieTitle = styled.h1`
   font-weight: 100;
-  font-size: 50px;
+  font-size: 30px;
   text-transform: uppercase;
   color: ${props => props.theme.colors.accent};
+
+  @media screen and (min-width: 768px) {
+    font-size: 40px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    font-size: 50px;
+  }
 `;
 
 export const MovieData = styled.div`
   display: flex;
-  column-gap: 20px;
+  flex-direction: column;
+  row-gap: 10px;
   font-weight: 200;
-  font-size: 20px;
+  font-size: 14px;
+
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+    row-gap: 0px;
+    column-gap: 20px;
+    font-size: 16px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    font-size: 20px;
+  }
 `;
 
 export const StarIcon = styled(BsStarFill)`
@@ -57,7 +77,16 @@ export const Dot = styled.span`
 `;
 
 export const Overview = styled.p`
+  font-size: 12px;
   color: ${props => props.theme.colors.accent};
+
+  @media screen and (min-width: 768px) {
+    font-size: 16px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    font-size: 20px;
+  }
 `;
 
 export const ButtonMore = styled(motion.button)`

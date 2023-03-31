@@ -82,32 +82,4 @@ body {
   transform-origin: 0%;
   z-index: 3;
 }
-
-.parallax {
-  width: 100%;
-  overflow: hidden;
-  letter-spacing: -2px;
-  line-height: 0.8;
-  margin: 0;
-  white-space: nowrap;
-  display: flex;
-  align-self: start;
-  flex-wrap: nowrap;
-}
-
-.parallax .scroller {
-  font-weight: 100;
-  text-transform: uppercase;
-  font-size: 64px;
-  display: flex;
-  white-space: nowrap;
-  display: flex;
-  flex-wrap: nowrap;
-}
-
-.parallax span {
-  display: flex;
-  align-items: center;
-  margin-right: 30px;
-}
 `;

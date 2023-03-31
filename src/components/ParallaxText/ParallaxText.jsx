@@ -1,6 +1,5 @@
 import { useRef } from 'react';
 import {
-  motion,
   useScroll,
   useSpring,
   useTransform,
@@ -9,6 +8,7 @@ import {
   useAnimationFrame,
 } from 'framer-motion';
 import { wrap } from '@motionone/utils';
+import { Parallax, Scroller, ParallaxSpan } from './ParallaxText.styled';
 
 export const ParallaxText = ({ children, baseVelocity = 100 }) => {
   const baseX = useMotionValue(0);
@@ -38,13 +38,13 @@ export const ParallaxText = ({ children, baseVelocity = 100 }) => {
     baseX.set(baseX.get() + moveBy);
   });
   return (
-    <div className="parallax">
-      <motion.div className="scroller" style={{ x }}>
-        <span>{children} </span>
-        <span>{children} </span>
-        <span>{children} </span>
-        <span>{children} </span>
-      </motion.div>
-    </div>
+    <Parallax>
+      <Scroller style={{ x }}>
+        <ParallaxSpan>{children} </ParallaxSpan>
+        <ParallaxSpan>{children} </ParallaxSpan>
+        <ParallaxSpan>{children} </ParallaxSpan>
+        <ParallaxSpan>{children} </ParallaxSpan>
+      </Scroller>
+    </Parallax>
   );
 };

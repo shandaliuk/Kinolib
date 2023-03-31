@@ -3,25 +3,21 @@ import { motion } from 'framer-motion';
 
 export const ModalContent = styled(motion.div)`
   position: absolute;
-  top: 20px;
-  left: 20px;
-  right: 20px;
-  bottom: 38px;
+  top: 50%;
+  left: 50%;
+  height: 552px;
+  transform: translate(-50%, -50%);
   padding: 48px 20px 48px 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  overflow: auto;
   outline: none;
   background-color: rgba(3, 10, 2, 0.85);
   border: 1px solid ${props => props.theme.colors.primary};
   box-shadow: ${props => props.theme.shadows.box};
-  overflow: hidden;
+  overflow: scroll;
 
   @media screen and (min-width: 768px) {
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     width: 704px;
     height: 552px;
     padding: 40px 66px 40px 36px;
@@ -54,8 +50,8 @@ export const ModalImage = styled.img`
   }
 
   @media screen and (min-width: 1280px) {
-    width: 375px;
-    height: 478px;
+    width: 365px;
+    height: 468px;
   }
 `;
 
