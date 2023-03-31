@@ -4,7 +4,7 @@ import sprite from 'images/sprite.svg';
 import { FormWrapper, Input, SubmitButton, SearchIcon } from './Form.styled';
 
 export const HeaderForm = () => {
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [, setSearchParams] = useSearchParams();
 
   const handleSubmit = (values, actions) => {
     setSearchParams({ query: values.query, page: 1 });

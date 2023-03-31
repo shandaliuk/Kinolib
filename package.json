@@ -1,7 +1,7 @@
 {
   "name": "my-app",
   "version": "0.1.0",
-  "homepage": "https://shandaliuk.github.io/Kinolib",
+  "homepage": "https://shandaliuk.github.io/Kinolib/",
   "private": true,
   "dependencies": {
     "@motionone/utils": "^10.15.1",
