@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { BrowserRouter } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 import { store } from 'redux/store';
 import { Provider } from 'react-redux';
 import Modal from 'react-modal';
@@ -19,12 +19,12 @@ root.render(
   <React.StrictMode>
     <Provider store={store}>
       <AuthProvider>
-        <BrowserRouter basename="/Kinolib">
+        <HashRouter>
           <ThemeProvider theme={theme}>
             <GlobalStyle />
             <App />
           </ThemeProvider>
-        </BrowserRouter>
+        </HashRouter>
       </AuthProvider>
     </Provider>
   </React.StrictMode>
